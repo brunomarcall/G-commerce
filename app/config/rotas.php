@@ -12,6 +12,12 @@ $rotas['home'] = array(
     'metodo' => 'home'
 );
 
+$rotas['esqueceuSenha'] = array(
+    'rotas' => 'esqueceuSenha',
+    'controller' => 'Controllers\Paginas',
+    'metodo' => 'esqueceuSenha'
+);
+
 
 $rotas['404'] = array(
     'rotas' => '404',

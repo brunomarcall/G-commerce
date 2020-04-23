@@ -13,6 +13,10 @@ class Paginas {
         require PATH_VIEWS."404.php";
     }
 
+    public function esqueceuSenha(){
+        require PATH_VIEWS."esqueceuSenha.php";
+    }
+
     public function dashboard(){
         require PATH_VIEWS."dashboard.php";
     }
