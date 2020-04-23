@@ -21,6 +21,14 @@ class Paginas {
         require PATH_VIEWS."dashboard.php";
     }
 
+    public function graficos(){
+        require PATH_VIEWS."graficos.php";
+    }
+
+    public function relatorios(){
+        require PATH_VIEWS."relatorios.php";
+    }
+
     public function cadastro(){
         require PATH_VIEWS."cadastro.php";
     }

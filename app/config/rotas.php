@@ -12,6 +12,19 @@ $rotas['home'] = array(
     'metodo' => 'home'
 );
 
+$rotas['graficos'] = array(
+    'rotas' => 'graficos',
+    'controller' => 'Controllers\Paginas',
+    'metodo' => 'graficos'
+);
+
+$rotas['relatorios'] = array(
+    'rotas' => 'relatorios',
+    'controller' => 'Controllers\Paginas',
+    'metodo' => 'relatorios'
+);
+
+
 $rotas['esqueceuSenha'] = array(
     'rotas' => 'esqueceuSenha',
     'controller' => 'Controllers\Paginas',
