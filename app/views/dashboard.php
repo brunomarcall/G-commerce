@@ -16,8 +16,8 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.css" rel="stylesheet">
-  <link rel="shortcut icon" href="./img/img/Logo_circle.png">
+  <link href="app/views/styles/css/sb-admin-2.css" rel="stylesheet">
+  <link rel="shortcut icon" href="app/views/styles/img/img/Logo_circle.png">
 
 </head>
 
@@ -30,11 +30,11 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard">
         <div class="sidebar-brand-icon ">
-          <img src="./img/img/Logo_circle.png" height="40px" width="40px">
+          <img src="app/views/styles/img/img/Logo_circle.png" height="40px" width="40px">
         </div>
-        <div class="sidebar-brand-text mx-2 mt-2"><img src="./img/img/Logo_no_circle.png" height="50px" width="140px"></div>
+        <div class="sidebar-brand-text mx-2 mt-2"><img src="app/views/styles/img/img/Logo_no_circle.png" height="50px" width="140px"></div>
       </a>
 
       <!-- Divider -->
@@ -42,7 +42,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="dashboard">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -53,7 +53,7 @@
       
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="graphs.html">
+        <a class="nav-link" href="graphs.html>
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Gráficos</span></a>
       </li>
@@ -236,7 +236,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Fulano de Tal</span>
-                <img class="img-profile rounded-circle" src="./img/img/Logo_circle.png">
+                <img class="img-profile rounded-circle" src="app/views/styles/img/img/Logo_circle.png">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -514,7 +514,7 @@
                 </div>
                 <div class="card-body">
                   <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="app/views/styles/img/undraw_posting_photo.svg" alt="">
                   </div>
                   <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
                   <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
@@ -566,7 +566,7 @@
         <div class="modal-body">Selecione "Sair" para finalizar a sessão atual.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="login.html">Sair</a>
+          <a class="btn btn-primary" href="home">Sair</a>
         </div>
       </div>
     </div>
@@ -580,14 +580,14 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <script src="app/views/styles/js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
   <script src="vendor/chart.js/Chart.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
+  <script src="app/views/styles/js/demo/chart-area-demo.js"></script>
+  <script src="app/views/styles/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

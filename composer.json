@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "app/controllers",
+            "Models\\": "app/models",
+            "App\\": "app"
+        },
+        "files": [
+            "app/config/constantes.php"
+        ]
+    }
+}

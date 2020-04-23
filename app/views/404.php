@@ -16,8 +16,8 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.css" rel="stylesheet">
-  <link rel="shortcut icon" href="./img/img/Logo_circle.png">
+  <link href="app/views/styles/css/sb-admin-2.css" rel="stylesheet">
+  <link rel="shortcut icon" href="app/views/styles/img/img/Logo_circle.png">
 
 </head>
 
@@ -36,7 +36,7 @@
             <div class="error mx-auto mt-5" data-text="404">404</div>
             <p class="lead text-gray-800 mb-5">Page Not Found</p>
             <p class="text-gray-500 mb-0">Acesso negado!</p>
-            <a href="index.html">&larr; Voltar para a Dashboard</a>
+            <a href="home">&larr; Voltar para a Dashboard</a>
           </div>
 
         </div>

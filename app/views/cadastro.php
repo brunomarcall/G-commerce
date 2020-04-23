@@ -16,8 +16,8 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.css" rel="stylesheet">
-  <link rel="shortcut icon" href="./img/img/Logo_circle.png">
+  <link href="app/views/styles/css/sb-admin-2.css" rel="stylesheet">
+  <link rel="shortcut icon" href="app/views/styles/img/img/Logo_circle.png">
 
 </head>
 
@@ -33,10 +33,10 @@
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
-                <img src="./img/img/Logo.png" height="50px" width="140px">
+                <img src="app/views/styles/img/img/Logo.png" height="50px" width="140px">
                 <h1 class="h4 text-gray-900 mt-4 mb-4">Crie sua conta!</h1>
               </div>
-              <form class="user">
+              <form action="<?=BASE_URL?>/login" method="post" class="user">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nome">
@@ -56,15 +56,15 @@
                     <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Confirme sua senha">
                   </div>
                 </div>
-                <a href="login.html" class="btn btn-primary btn-user btn-block">
-                  Criar conta
-                </a>
+                <button type="submit" class="btn btn-primary btn-user btn-block">
+                      Entrar
+                    </button>
                 <hr>
                 
               </form>
               
               <div class="text-center">
-                <a class="small" href="login.html">Voltar</a>
+                <a class="small" href="home">Voltar</a>
               </div>
             
             </div>
