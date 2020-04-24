@@ -36,7 +36,7 @@
             <div class="error mx-auto mt-5" data-text="404">404</div>
             <p class="lead text-gray-800 mb-5">Page Not Found</p>
             <p class="text-gray-500 mb-0">Acesso negado!</p>
-            <a href="home">&larr; Voltar para a Dashboard</a>
+            <a href="<?=BASE_URL?>">&larr; Voltar para a Dashboard</a>
           </div>
 
         </div>

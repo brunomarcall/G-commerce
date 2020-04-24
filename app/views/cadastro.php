@@ -36,24 +36,24 @@
                 <img src="app/views/styles/img/img/Logo.png" height="50px" width="140px">
                 <h1 class="h4 text-gray-900 mt-4 mb-4">Crie sua conta!</h1>
               </div>
-              <form action="<?=BASE_URL?>/login" method="post" class="user">
+              <form action="<?=BASE_URL?>/cadastro" method="post" class="user">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nome">
+                    <input name="nome" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nome">
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Sobrenome">
+                    <input name="sobrenome" type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Sobrenome">
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email">
+                  <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha">
+                    <input name="senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha">
                   </div>
                   <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Confirme sua senha">
+                    <input name="confirme" type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Confirme sua senha">
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-user btn-block">
@@ -64,7 +64,7 @@
               </form>
               
               <div class="text-center">
-                <a class="small" href="home">Voltar</a>
+                <a class="small" href="<?=BASE_URL?>/logout">Voltar</a>
               </div>
             
             </div>

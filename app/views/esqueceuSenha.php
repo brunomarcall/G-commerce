@@ -46,13 +46,13 @@
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email ...">
                     </div>
-                    <a href="home" class="btn btn-primary btn-user btn-block">
+                    <a href="<?=BASE_URL?>" class="btn btn-primary btn-user btn-block">
                       Redefinir senha
                     </a>
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="home">Voltar</a>
+                    <a class="small" href="<?=BASE_URL?>">Voltar</a>
                   </div>
                 </div>
               </div>

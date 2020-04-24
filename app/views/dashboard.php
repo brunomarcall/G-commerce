@@ -235,7 +235,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Fulano de Tal</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Caldi_Cana</span>
                 <img class="img-profile rounded-circle" src="app/views/styles/img/img/Logo_circle.png">
               </a>
               <!-- Dropdown - User Information -->
@@ -566,7 +566,7 @@
         <div class="modal-body">Selecione "Sair" para finalizar a sessão atual.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="home">Sair</a>
+          <a class="btn btn-primary" href="<?=BASE_URL?>/logout">Sair</a>
         </div>
       </div>
     </div>

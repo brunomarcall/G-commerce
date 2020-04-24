@@ -42,7 +42,7 @@
                   </div>
                   <form action="<?=BASE_URL?>/login" method="post" class="user">
                     <div class="form-group">
-                      <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email ...">
+                      <input name="email" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email ...">
                     </div>
                     <div class="form-group">
                       <input name="senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha ...">
@@ -57,7 +57,9 @@
                       Entrar
                     </button>
                     <hr>
-                  
+                  </form>
+
+                  <?=$_SESSION["erro"] ?? ""?>
                   <div class="text-center">
                     <a class="small" href="esqueceuSenha">Esqueceu sua senha?</a>
                   </div>

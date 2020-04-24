@@ -12,6 +12,12 @@ $rotas['home'] = array(
     'metodo' => 'home'
 );
 
+$rotas['home'] = array(
+    'rotas' => 'conexao',
+    'controller' => 'Controllers\Dashboard',
+    'metodo' => 'conexao'
+);
+
 $rotas['graficos'] = array(
     'rotas' => 'graficos',
     'controller' => 'Controllers\Paginas',
@@ -40,14 +46,8 @@ $rotas['404'] = array(
 
 $rotas['login'] = array(
     'rotas' => 'login',
-    'controller' => 'Controllers\Paginas',
+    'controller' => 'Controllers\Autenticacao',
     'metodo' => 'login'
-);
-
-$rotas['dashboard'] = array(
-    'rotas' => 'dashboard',
-    'controller' => 'Controllers\Paginas',
-    'metodo' => 'dashboard'
 );
 
 $rotas['cadastro'] = array(
@@ -56,9 +56,16 @@ $rotas['cadastro'] = array(
     'metodo' => 'cadastro'
 );
 
+
+$rotas['dashboard'] = array(
+    'rotas' => 'dashboard',
+    'controller' => 'Controllers\Paginas',
+    'metodo' => 'dashboard'
+);
+
 $rotas['logout'] = array(
     'rotas' => 'logout',
-    'controller' => 'Controllers\Paginas',
+    'controller' => 'Controllers\Autenticacao',
     'metodo' => 'logout'
 );
 
