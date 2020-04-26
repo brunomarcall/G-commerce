@@ -18,6 +18,8 @@ class ComposerStaticInit361cea50e2b113864311d0af65beeda2
         'C' => 
         array (
             'Controllers\\' => 12,
+            'Config\\' => 7,
+            'ClanCats\\Hydrahon\\' => 18,
         ),
         'A' => 
         array (
@@ -33,6 +35,14 @@ class ComposerStaticInit361cea50e2b113864311d0af65beeda2
         'Controllers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app/controllers',
+        ),
+        'Config\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/config',
+        ),
+        'ClanCats\\Hydrahon\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/clancats/hydrahon/src',
         ),
         'App\\' => 
         array (

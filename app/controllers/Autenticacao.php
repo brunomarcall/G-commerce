@@ -10,7 +10,6 @@ class Autenticacao extends Controlador{
         parent::__construct();
     }
 
-
     /**
      * Verficando se o token armazenado no cache do navegador
      * corresponde a algum cadastrado no banco de dados.
@@ -44,7 +43,6 @@ class Autenticacao extends Controlador{
     public static function verificarLogin($email, $senha)
     {
         $user = Autenticacao::verificarEmail($email);
-        var_dump($senha);
 
         if ($user) {
             if ($senha == $user[0]['senha']){
@@ -58,9 +56,8 @@ class Autenticacao extends Controlador{
 
                 return $token;
             }
-        } else {
-            $_SESSION['erro'] = 'Usuário ou senha inválido.';
-        }
+        } 
+        $_SESSION['erro'] = 'Usuário ou senha inválido.';
         return false;
     }
 

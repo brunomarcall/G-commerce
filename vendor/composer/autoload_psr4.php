@@ -8,5 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Models\\' => array($baseDir . '/app/models'),
     'Controllers\\' => array($baseDir . '/app/controllers'),
+    'Config\\' => array($baseDir . '/app/config'),
+    'ClanCats\\Hydrahon\\' => array($vendorDir . '/clancats/hydrahon/src'),
     'App\\' => array($baseDir . '/app'),
 );
