@@ -16,16 +16,16 @@ class Init {
     private function processarRota(string $segmentos){
         foreach($this->rotas as $rota){
            if($segmentos == $rota['rotas']){
-            // var_dump($rota);
+            //var_dump($rota);
             
-            $nomeController = $rota['controller'];
-            $objController = new $nomeController;
+                $nomeController = $rota['controller'];
+                $objController = new $nomeController;
 
-            if(method_exists($objController, $rota['metodo'])){
-                $nomeMetodo = $rota['metodo'];
-                $objController->$nomeMetodo();
-                $controleExiste = true;
-                break;
+                if(method_exists($objController, $rota['metodo'])){
+                    $nomeMetodo = $rota['metodo'];
+                    $objController->$nomeMetodo();
+                    $controleExiste = true;
+                    break;
                 }
            }
         }

@@ -56,6 +56,12 @@ $rotas['cadastro'] = array(
     'metodo' => 'cadastro'
 );
 
+$rotas['cadastro/usuario'] = array(
+    'rotas' => 'cadastro/usuario',
+    'controller' => 'Controllers\Autenticacao',
+    'metodo' => 'cadastro'
+);
+
 
 $rotas['dashboard'] = array(
     'rotas' => 'dashboard',

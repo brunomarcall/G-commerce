@@ -1,6 +1,8 @@
 <?php
 namespace Controllers;
 
+use Controllers\Autenticacao;
+
 class Controlador{
 
     private $dadosView = array();
@@ -29,18 +31,17 @@ class Controlador{
     }
 
     public function estaLogado(){
-        return isset($_SESSION['usuario']) ? true : false;
+        return Autenticacao::checarLogin();
     }
 
     public function logar($usuario){
         if(!$this->estaLogado()){
-            session_regenerate_id();
-            $_SESSION['usuario'] = serialize($usuario);
+            $_SESSION['token'] = Autenticacao::verificarLogin($usuario['email'], $usuario['senha']);
         }
     }
     
     public function deslogar(){
-            unset($_SESSION['usuario']);
+            unset($_SESSION['token']);
             session_destroy();
         }
 }

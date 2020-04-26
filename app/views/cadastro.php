@@ -36,7 +36,7 @@
                 <img src="app/views/styles/img/img/Logo.png" height="50px" width="140px">
                 <h1 class="h4 text-gray-900 mt-4 mb-4">Crie sua conta!</h1>
               </div>
-              <form action="<?=BASE_URL?>/cadastro" method="post" class="user">
+              <form action="<?=BASE_URL?>cadastro/usuario" method="post" class="user">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input name="nome" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nome">
@@ -62,6 +62,7 @@
                 <hr>
                 
               </form>
+              <?=$_SESSION['erro']?>
               
               <div class="text-center">
                 <a class="small" href="<?=BASE_URL?>/logout">Voltar</a>

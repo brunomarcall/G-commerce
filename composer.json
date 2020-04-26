@@ -3,10 +3,14 @@
         "psr-4": {
             "Controllers\\": "app/controllers",
             "Models\\": "app/models",
+            "Config\\": "app/config",
             "App\\": "app"
         },
         "files": [
             "app/config/constantes.php"
         ]
+    },
+    "require": {
+        "clancats/hydrahon": "^1.1"
     }
 }
