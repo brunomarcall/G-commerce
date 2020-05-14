@@ -27,7 +27,7 @@ class Controlador{
     public function redirecionar($url=""){
         header("Location:" . BASE_URL . $url); 
         exit;
-        // unset($_SESSION['erro']);
+         unset($_SESSION['erro']);
     }
 
     public function estaLogado(){
