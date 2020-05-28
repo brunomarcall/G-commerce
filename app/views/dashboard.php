@@ -65,6 +65,12 @@
           <span>Relatório</span></a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link" href="crud">
+          <i class="fas fa-fw fa-table"></i>
+          <span>CRUD</span></a>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -89,7 +95,7 @@
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-
+          
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">

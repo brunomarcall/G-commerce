@@ -3,6 +3,7 @@ namespace Controllers;
 
 use Controllers\Controlador;
 use Models\Usuario;
+use Models\Produtos;
 
 class Autenticacao extends Controlador{
     
@@ -52,7 +53,7 @@ class Autenticacao extends Controlador{
                 Usuario::update()
                     ->set('token', $token)
                     ->where('email', $email)
-                ->execute();
+                    ->execute();
 
                 return $token;
             }
@@ -145,5 +146,7 @@ class Autenticacao extends Controlador{
         $this->deslogar();
         $this->redirecionar();
     }
+
     
+   
 }

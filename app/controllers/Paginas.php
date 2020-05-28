@@ -47,4 +47,12 @@ class Paginas extends Controlador {
         $this->views("cadastro");
     }
 
+    public function crud(){
+        if($this->estaLogado()){
+            $this->views("crud");
+        }else{
+            $this->redirecionar();
+        }
+    }
+
 }

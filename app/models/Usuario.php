@@ -19,5 +19,4 @@ class Usuario extends Modelo {
         return $this->usuario;
     }
 
-    
 }

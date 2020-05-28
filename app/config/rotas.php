@@ -81,5 +81,17 @@ $rotas['listar-produtos'] = array(
     'metodo' => 'listarProdutos'
 );
 
+$rotas['crud'] = array(
+    'rotas' => 'crud',
+    'controller' => 'Controllers\Paginas',
+    'metodo' => 'crud'
+);
+
+$rotas['inserir'] = array(
+    'rotas' => 'inserir',
+    'controller' => 'Controllers\Produtos',
+    'metodo' => 'inserirProdutos'
+);
+
 // var_dump($rotas);
 ?>
