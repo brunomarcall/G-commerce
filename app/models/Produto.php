@@ -15,9 +15,5 @@ class Produto extends Modelo {
         $this->categoria = $categoria;
         $this->nome = $nome;
         $this->quantidade = $quantidade;
-    }
-    
-
-
-    
+    } 
 }

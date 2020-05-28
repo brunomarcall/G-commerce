@@ -61,6 +61,7 @@
             </div>
         </form>
         <?=$_SESSION["cadastrado"] ?? ""?>
+        <?=$_SESSION["erro"] ?? ""?>
                 </div>
               </div>
             </div>
