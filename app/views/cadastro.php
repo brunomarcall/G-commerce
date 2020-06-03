@@ -56,6 +56,14 @@
                     <input name="confirme" type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Confirme sua senha">
                   </div>
                 </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input name="cpf_cnpj" type="number" class="form-control form-control-user" id="exampleInputPassword" placeholder="CPF/CNPJ">
+                  </div>
+                  <div class="col-sm-6">
+                    <input name="confirme" type="number" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Telefone">
+                  </div>
+                </div>
                 <button type="submit" class="btn btn-primary btn-user btn-block">
                       Entrar
                     </button>
