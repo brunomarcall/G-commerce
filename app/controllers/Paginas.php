@@ -63,4 +63,11 @@ class Paginas extends Controlador {
         }
     }
 
+    public function editarProduto() {
+        if($this->estaLogado()) {
+            $this->views("editarProduto");
+        } else {
+            $this->redirecionar("listar");
+        }
+    }
 }

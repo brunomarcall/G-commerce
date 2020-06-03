@@ -55,12 +55,13 @@ Class Produtos extends Controlador {
     }
 
     public function editarProduto($id) {
-
+        
     }
 
-    public function excluirProduto($id) {
+    public function excluirProduto() {
         $id = $_GET['id'];
-        Produto::delete()->where('id', $id);
+        Produto::delete()->where('id', $id)->execute();
+        $this->redirecionar('listar');
     }
 
 }

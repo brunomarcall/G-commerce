@@ -105,18 +105,23 @@ $rotas['listar-produto'] = array(
     'metodo' => 'listarprodutos'
 );
 
-$rotas['editar-produto'] = array(
-    'rotas' => 'editar-produto',
-    'controller' => 'Controllers\Produtos',
-    'metodo' => 'editarProduto'
-);
+// $rotas['editar-produto'] = array(
+//     'rotas' => 'editar-produto',
+//     'controller' => 'Controllers\Produtos',
+//     'metodo' => 'editarProduto'
+// );
 
 $rotas['excluir-produto'] = array(
-    'rotas' => 'excluir-produto',
-    'controller' => 'Controllers\Produto',
+    'rotas' => 'excluirProduto',
+    'controller' => 'Controllers\Produtos',
     'metodo' => 'excluirProduto'
 );
 
+$rotas['editarProduto'] = array(
+    'rotas' => 'editarProduto',
+    'controller' => 'Controllers\Paginas',
+    'metodo' => 'editarProduto'
+);
 
 // var_dump($rotas);
 ?>

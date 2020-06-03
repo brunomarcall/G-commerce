@@ -1,3 +1,10 @@
+<?php
+
+use Config\Modelo;
+use Controllers\Produtos;
+use Models\Produto;
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Login</title>
+  <title>Editar-Produto</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,36 +43,30 @@
               <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
               <div class="col-lg-6">
                 <div class="p-5">
-                  <div class="text-center">
-                    <img src="app/views/styles/img/img/Logo.png" height="50px" width="140px">
-                    <h1 class="h4 text-gray-900 mt-4 mb-4">Bem-vindo!</h1>
-                  </div>
-                  <form action="<?=BASE_URL?>login" method="post" class="user">
-                    <div class="form-group">
-                      <input name="email" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email ..." required autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                      <input name="senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha ..." required autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Lembrar de mim</label>
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
-                      Entrar
-                    </button>
-                    <hr>
-                  </form>
-
-                  <?=$_SESSION["erro"] ?? ""?>
-                  <div class="text-center">
-                    <a class="small" href="esqueceuSenha">Esqueceu sua senha?</a>
-                  </div>
-                  <div class="text-center">
-                    <a class="small" href="cadastro">Criar sua conta!</a>
-                  </div>
+                <h4>Formulário de Edição</h4>
+        <form action="<?=BASE_URL?>inserir" method="post" style="margin-top: 20px">
+        <div class="form-group">
+                <label>Id do Produto</label>
+                <input type="text" class="form-control" name="id" placeholder="Insira o ID do Produto" required required autocomplete="off">
+            </div>
+        <div class="form-group">
+                <label>Categoria</label>
+                <input type="text" class="form-control" name="categoria" placeholder="Insira a categoria do Produto" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label>Nome</label>
+                <input type="text" class="form-control" name="nome" placeholder="Insira o nome do Produto" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label>Quantidade</label>
+                <input type="number" class="form-control" name="quantidade" placeholder="Insira a quantiade de Produtos" required autocomplete="off">
+            </div>
+           
+            <div style="text-align: right">
+                <a href="<?=BASE_URL?>/listar" role="button" class="btn btn-sm btn-primary">Voltar</a>
+                <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
+            </div>
+        </form>
                 </div>
               </div>
             </div>

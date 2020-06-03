@@ -63,9 +63,9 @@
                     <td><?php echo $item['categoria'] ?></td>
                     <td><?php echo $item['quantidade'] ?></td>
                     <td>
-                      <a class="btn btn-warning btn-sm" href="cadastrarProduto" role="button">Cadastrar</a>
-                      <a class="btn btn-primary btn-sm" href="" role="button">Editar</a>
-                      <a class="btn btn-danger btn-sm" href="excluirProduto?id=<?php echo $id?>" role="button">Excluir</a>
+                      <a class="btn btn-primary btn-sm" href="cadastrarProduto" role="button">Cadastrar</a>
+                      <a class="btn btn-warning btn-sm" href="<?=BASE_URL?>editarProduto?id=<?php echo $item['id']?>" role="button">Editar</a>
+                      <a class="btn btn-danger btn-sm" href="<?=BASE_URL?>excluirProduto?id=<?php echo $item['id']?>"role="button">Excluir</a>
                     </td>
                 </tr>
               <?php } ?>

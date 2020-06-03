@@ -40,28 +40,26 @@
         <form action="<?=BASE_URL?>inserir" method="post" style="margin-top: 20px">
         <div class="form-group">
                 <label>Id do Produto</label>
-                <input type="text" class="form-control" name="id" placeholder="Insira o ID do Produto">
+                <input type="text" class="form-control" name="id" placeholder="Insira o ID do Produto" required required autocomplete="off">
             </div>
         <div class="form-group">
                 <label>Categoria</label>
-                <input type="text" class="form-control" name="categoria" placeholder="Insira a categoria do Produto">
+                <input type="text" class="form-control" name="categoria" placeholder="Insira a categoria do Produto" required autocomplete="off">
             </div>
             <div class="form-group">
                 <label>Nome</label>
-                <input type="text" class="form-control" name="nome" placeholder="Insira o nome do Produto">
+                <input type="text" class="form-control" name="nome" placeholder="Insira o nome do Produto" required autocomplete="off">
             </div>
             <div class="form-group">
                 <label>Quantidade</label>
-                <input type="number" class="form-control" name="quantidade" placeholder="Insira a quantiade de Produtos">
+                <input type="number" class="form-control" name="quantidade" placeholder="Insira a quantiade de Produtos" required autocomplete="off">
             </div>
            
             <div style="text-align: right">
-                <a href="<?=BASE_URL?>/dashboard" role="button" class="btn btn-sm btn-primary">Voltar</a>
+                <a href="<?=BASE_URL?>/listar" role="button" class="btn btn-sm btn-primary">Voltar</a>
                 <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
             </div>
         </form>
-        <?=$_SESSION["cadastrado"] ?? ""?>
-        <?=$_SESSION["erro"] ?? ""?>
                 </div>
               </div>
             </div>
