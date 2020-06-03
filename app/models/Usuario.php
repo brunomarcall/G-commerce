@@ -19,4 +19,24 @@ class Usuario extends Modelo {
         return $this->usuario;
     }
 
+    public function setUsuario($usuario){
+        return $this->usuario;
+    }
+
+    public function getEmail(){
+        return $this->email;
+    }
+
+    public function setEmail($email){
+        return $this->email;
+    }
+
+    public function getSenha(){
+        return $this->senha;
+    }
+
+    public function setSenha($senha){
+        return $this->senha;
+    }
+
 }

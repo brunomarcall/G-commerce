@@ -30,11 +30,11 @@ Class Produtos extends Controlador {
                 $_SESSION['codigo_produto'] = Produtos::adicionarProduto($id, $categoria, $nome, $quantidade);
                 $_SESSION['cadastrado'] = 'Produto Cadastrado com Sucesso';
                 $_SESSION['id'] = $id;
-                $this->redirecionar('crud');
+                $this->redirecionar('listar');
             }else {
                 unset($_SESSION['cadastrado']);
                 $_SESSION['erro'] = 'Produto já Cadastrado';
-                $this->redirecionar('crud');
+                $this->redirecionar('listar');
             }
         }
         $this->redirecionar();
@@ -53,4 +53,14 @@ Class Produtos extends Controlador {
             echo 'Exceção capturada: ',  $e->getMessage(), "\n";
         }
     }
+
+    public function editarProduto($id) {
+
+    }
+
+    public function excluirProduto($id) {
+        $id = $_GET['id'];
+        Produto::delete()->where('id', $id);
+    }
+
 }

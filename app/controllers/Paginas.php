@@ -47,10 +47,18 @@ class Paginas extends Controlador {
         $this->views("cadastro");
     }
 
-    public function crud(){
+    public function cadastrarProduto(){
         if($this->estaLogado()){
-            $this->views("crud");
+            $this->views("cadastrarProduto");
         }else{
+            $this->redirecionar();
+        }
+    }
+
+    public function listarprodutos() {
+        if($this->estaLogado()) {
+            $this->views("listar");
+        } else {
             $this->redirecionar();
         }
     }

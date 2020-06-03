@@ -60,10 +60,4 @@ class Modelo {
         self::_checkH();
         return self::$_h->delete();
     }
-
-    // public function insertDB($table, $condition, $queryParameters){
-    //     $this->_checkH("insert into $table values $condition", $queryParameters);
-    //     return  $statement->execute($queryParameters);
-    // }
-
 }

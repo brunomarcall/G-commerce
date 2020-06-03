@@ -81,17 +81,42 @@ $rotas['listar-produtos'] = array(
     'metodo' => 'listarProdutos'
 );
 
-$rotas['crud'] = array(
-    'rotas' => 'crud',
+$rotas['cadastrar-Produto'] = array(
+    'rotas' => 'cadastrarProduto',
     'controller' => 'Controllers\Paginas',
-    'metodo' => 'crud'
+    'metodo' => 'cadastrarProduto'
 );
 
-$rotas['inserir'] = array(
+$rotas['inserir-produto'] = array(
     'rotas' => 'inserir',
     'controller' => 'Controllers\Produtos',
     'metodo' => 'inserirProdutos'
 );
+
+$rotas['listar-produto'] = array(
+    'rotas' => 'listar',
+    'controller' => 'Controllers\Produtos',
+    'metodo' => 'listarprodutos'
+);
+
+$rotas['listar-produto'] = array(
+    'rotas' => 'listar',
+    'controller' => 'Controllers\Paginas',
+    'metodo' => 'listarprodutos'
+);
+
+$rotas['editar-produto'] = array(
+    'rotas' => 'editar-produto',
+    'controller' => 'Controllers\Produtos',
+    'metodo' => 'editarProduto'
+);
+
+$rotas['excluir-produto'] = array(
+    'rotas' => 'excluir-produto',
+    'controller' => 'Controllers\Produto',
+    'metodo' => 'excluirProduto'
+);
+
 
 // var_dump($rotas);
 ?>
