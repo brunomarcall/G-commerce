@@ -66,16 +66,18 @@ Class Produtos extends Controlador {
         $categoria = $_POST['categoria'];
         $quantidade = $_POST['quantidade'];
     
-
-        Produto::update() ->set('nome', $name,)
+        
+        $var = $quantidade - 9;
+        
+        Produto::update()->set('nome', $name)
         ->where('id', $idUp)
         ->execute();
 
-        Produto::update() ->set('categoria', $categoria,)
+        Produto::update()->set('categoria', $categoria)
         ->where('id', $idUp)
         ->execute();
 
-        Produto::update() ->set('quantidade', $quantidade,)
+        Produto::update()->set('quantidade', $var)
         ->where('id', $idUp)
         ->execute();
     

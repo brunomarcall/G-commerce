@@ -16,7 +16,6 @@ class Init {
     private function processarRota(string $segmentos){
         foreach($this->rotas as $rota){
            if($segmentos == $rota['rotas']){
-            //var_dump($rota);
             
                 $nomeController = $rota['controller'];
                 $objController = new $nomeController;
