@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>CADASTRO-PRODUTO</title>
+  <title>Cadastro-Produto</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -42,13 +42,13 @@
                 <label>Id do Produto</label>
                 <input type="text" class="form-control" name="id" placeholder="Insira o ID do Produto" required required autocomplete="off">
             </div>
-        <div class="form-group">
-                <label>Categoria</label>
-                <input type="text" class="form-control" name="categoria" placeholder="Insira a categoria do Produto" required autocomplete="off">
-            </div>
             <div class="form-group">
                 <label>Nome</label>
                 <input type="text" class="form-control" name="nome" placeholder="Insira o nome do Produto" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label>Categoria</label>
+                <input type="text" class="form-control" name="categoria" placeholder="Insira a categoria do Produto" required autocomplete="off">
             </div>
             <div class="form-group">
                 <label>Quantidade</label>

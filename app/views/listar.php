@@ -39,7 +39,7 @@
                   <th scope="col">Nome</th>
                   <th scope="col">Categoria</th>
                   <th scope="col">Quantidade</th>
-                  <th scope="col"><span style="margin-left: 90px;">Ação</span></th>
+                  <th scope="col"><span style="margin-left: 40px;">Ação</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -49,8 +49,6 @@
                   use Config\Modelo;
                   use Controllers\Produtos;
                   use Models\Produto;
-
-                  $produto = new Controllers\Produtos;
 
                   $produtos = Produto::select()->get();
 
@@ -63,7 +61,6 @@
                     <td><?php echo $item['categoria'] ?></td>
                     <td><?php echo $item['quantidade'] ?></td>
                     <td>
-                      <a class="btn btn-primary btn-sm" href="cadastrarProduto" role="button">Cadastrar</a>
                       <a class="btn btn-warning btn-sm" href="<?=BASE_URL?>editarProduto?id=<?php echo $item['id']?>" role="button">Editar</a>
                       <a class="btn btn-danger btn-sm" href="<?=BASE_URL?>excluirProduto?id=<?php echo $item['id']?>"role="button">Excluir</a>
                     </td>
@@ -72,6 +69,7 @@
               </tbody>
             </table>
           </div>
+          <a style="float: right; margin-right: 100px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="cadastrarProduto" role="button">Cadastrar</a>
         </div>
       </div>
     </div>

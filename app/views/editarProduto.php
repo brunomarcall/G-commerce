@@ -1,10 +1,3 @@
-<?php
-
-use Config\Modelo;
-use Controllers\Produtos;
-use Models\Produto;
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,7 +9,7 @@ use Models\Produto;
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Editar-Produto</title>
+  <title>Edição-PRODUTO</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -43,19 +36,29 @@ use Models\Produto;
               <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
               <div class="col-lg-6">
                 <div class="p-5">
+
+                <?php 
+                  use Config\Modelo;
+                  use Controllers\Produtos;
+                  use Models\Produto;
+
+                  $id = $_GET['id'];
+
+                ?>
                 <h4>Formulário de Edição</h4>
-        <form action="<?=BASE_URL?>inserir" method="post" style="margin-top: 20px">
+        <form action="<?=BASE_URL?>updateProduto" method="post" style="margin-top: 20px">
         <div class="form-group">
-                <label>Id do Produto</label>
-                <input type="text" class="form-control" name="id" placeholder="Insira o ID do Produto" required required autocomplete="off">
-            </div>
-        <div class="form-group">
-                <label>Categoria</label>
-                <input type="text" class="form-control" name="categoria" placeholder="Insira a categoria do Produto" required autocomplete="off">
+                <label>Código do Produto</label>
+                <input type="text" class="form-control" name="id" value="<?php echo $id?>"  disabled>
+                <input type="text" class="form-control" name="idUp" value="<?php echo $id?>"  style="display: none;">
             </div>
             <div class="form-group">
                 <label>Nome</label>
                 <input type="text" class="form-control" name="nome" placeholder="Insira o nome do Produto" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label>Categoria</label>
+                <input type="text" class="form-control" name="categoria" placeholder="Insira a categoria do Produto" required autocomplete="off">
             </div>
             <div class="form-group">
                 <label>Quantidade</label>
@@ -64,7 +67,7 @@ use Models\Produto;
            
             <div style="text-align: right">
                 <a href="<?=BASE_URL?>/listar" role="button" class="btn btn-sm btn-primary">Voltar</a>
-                <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
+                <button type="submit" class="btn btn-sm btn-primary">Recadastrar</button>
             </div>
         </form>
                 </div>

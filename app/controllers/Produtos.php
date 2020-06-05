@@ -54,14 +54,33 @@ Class Produtos extends Controlador {
         }
     }
 
-    public function editarProduto($id) {
-        
-    }
-
     public function excluirProduto() {
         $id = $_GET['id'];
         Produto::delete()->where('id', $id)->execute();
         $this->redirecionar('listar');
+    }
+
+    public function updateProduto() {
+        $idUp = $_POST['idUp'];
+        $name = $_POST['nome'];
+        $categoria = $_POST['categoria'];
+        $quantidade = $_POST['quantidade'];
+    
+
+        Produto::update() ->set('nome', $name,)
+        ->where('id', $idUp)
+        ->execute();
+
+        Produto::update() ->set('categoria', $categoria,)
+        ->where('id', $idUp)
+        ->execute();
+
+        Produto::update() ->set('quantidade', $quantidade,)
+        ->where('id', $idUp)
+        ->execute();
+    
+        $this->redirecionar('listar');
+
     }
 
 }

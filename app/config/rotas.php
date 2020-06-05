@@ -123,5 +123,11 @@ $rotas['editarProduto'] = array(
     'metodo' => 'editarProduto'
 );
 
+$rotas['updateProduto'] = array(
+    'rotas' => 'updateProduto',
+    'controller' => 'Controllers\Produtos',
+    'metodo' => 'updateProduto'
+);
+
 // var_dump($rotas);
 ?>
