@@ -70,4 +70,24 @@ class Paginas extends Controlador {
             $this->redirecionar("listar");
         }
     }
+
+    public function listaVendas() {
+        if($this->estaLogado()) {
+            $this->views('listaVendas');
+        } else {
+            $this->redirecionar();
+        }
+        
+    }
+
+    public function cadastroVenda() {
+        if($this->estaLogado()) {
+            $this->views('cadastroVenda');
+        } else {
+            $this->redirecionar();
+        }
+    }
+
+
+
 }

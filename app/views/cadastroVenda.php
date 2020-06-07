@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Cadastro-Produto</title>
+  <title>Cadastro-Venda</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -37,26 +37,33 @@
               <div class="col-lg-6">
                 <div class="p-5">
                 <h4>Formulário de Cadastro</h4>
-        <form action="<?=BASE_URL?>inserir" method="post" style="margin-top: 20px">
+        <form action="<?=BASE_URL?>inserirVenda" method="post" style="margin-top: 20px">
         <div class="form-group">
-                <label>Id do Produto</label>
-                <input type="text" class="form-control" name="id" placeholder="Insira o ID do Produto" required  autocomplete="off">
+                <label>Id do Venda</label>
+                <input type="text" class="form-control" name="id" placeholder="Insira o ID do Venda" required required autocomplete="off">
             </div>
             <div class="form-group">
                 <label>Nome</label>
-                <input type="text" class="form-control" name="nome" placeholder="Insira o nome do Produto" required autocomplete="off">
+                <input type="number" class="form-control" name="nome" placeholder="Insira o valor do Venda" required autocomplete="off">
             </div>
             <div class="form-group">
-                <label>Categoria</label>
-                <input type="text" class="form-control" name="categoria" placeholder="Insira a categoria do Produto" required autocomplete="off">
+                <label>Data</label>
+                <input type="date" class="form-control" name="categoria" placeholder="Insira a data do Venda" required autocomplete="off">
             </div>
             <div class="form-group">
-                <label>Quantidade</label>
-                <input type="number" class="form-control" name="quantidade" placeholder="Insira a quantiade de Produtos" required autocomplete="off">
+                <label>Pagamento: </label><br>
+               <select >
+                   <option value="1">
+                       Cartão
+                   </option>
+                   <option value="2">
+                       Dinheiro
+                   </option>
+               </select>
             </div>
-           
+          
             <div style="text-align: right">
-                <a href="<?=BASE_URL?>/listar" role="button" class="btn btn-sm btn-primary">Voltar</a>
+                <a href="<?=BASE_URL?>/listaVendas" role="button" class="btn btn-sm btn-primary">Voltar</a>
                 <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
             </div>
         </form>

@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Produtos</title>
+  <title>Vendas</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,9 +36,9 @@
               <thead>
                 <tr>
                   <th scope="col">Código</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Categoria</th>
-                  <th scope="col">Quantidade</th>
+                  <th scope="col">Venda</th>
+                  <th scope="col">Data</th>
+                  <th scope="col">Pagamento</th>
                   <th scope="col"><span style="margin-left: 40px;">Ação</span></th>
                 </tr>
               </thead>
@@ -47,21 +47,21 @@
                   <?php
 
                   use Config\Modelo;
-                  use Models\Produto;
+                  use Models\Venda;
 
-                  $produtos = Produto::select()->get();
+                  $vendas = Venda::select()->get();
 
-                  foreach ($produtos as $item) {
+                  foreach($vendas as $dado) {
 
-
+                    
                   ?>
-                    <td><?php echo $item['id'] ?></td>
-                    <td><?php echo $item['nome'] ?></td>
-                    <td><?php echo $item['categoria'] ?></td>
-                    <td><?php echo $item['quantidade'] ?></td>
+                    <td><?php echo $dado['id'] ?></td>
+                    <td><?php echo $dado['venda'] ?></td>
+                    <td><?php echo date('d/m/Y', strtotime($dado['dt_venda'])) ?></td>
+                    <td><?php echo $dado['tipo_pagamento'] ?></td>
                     <td>
-                      <a class="btn btn-warning btn-sm" href="<?=BASE_URL?>editarProduto?id=<?php echo $item['id']?>" role="button">Editar</a>
-                      <a class="btn btn-danger btn-sm" href="<?=BASE_URL?>excluirProduto?id=<?php echo $item['id']?>"role="button">Excluir</a>
+                      <a class="btn btn-warning btn-sm" href="<?=BASE_URL?>editarProduto?id=<?php echo $dado['id']?>" role="button">Editar</a>
+                      <a class="btn btn-danger btn-sm" href="<?=BASE_URL?>excluirProduto?id=<?php echo $dado['id']?>"role="button">Excluir</a>
                     </td>
                 </tr>
               <?php } ?>
@@ -69,7 +69,7 @@
             </table>
           </div>
           <a style="float: right; margin-right: 100px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="dashboard" role="button">voltar</a>
-          <a style="float: right; margin-right: 8px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="cadastrarProduto" role="button">Cadastrar</a>
+          <a style="float: right; margin-right: 8px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="cadastroVenda" role="button">Nova Venda</a>
         </div>
       </div>
     </div>

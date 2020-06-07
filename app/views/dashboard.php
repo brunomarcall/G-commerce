@@ -51,24 +51,24 @@
       <hr class="sidebar-divider">
 
       
-      <!-- Nav Item - Charts -->
+      <!-- Gráficos -->
       <li class="nav-item">
         <a class="nav-link" href="graficos">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Gráficos</span></a>
       </li>
 
-      <!-- Nav Item - Tables -->
+      <!-- Vendas -->
       <li class="nav-item">
-        <a class="nav-link" href="relatorios">
+        <a class="nav-link" href="listaVendas">
           <i class="fas fa-fw fa-table"></i>
-          <span>Relatório</span></a>
+          <span>Vendas</span></a>
       </li>
-
+      <!-- Produtos -->
       <li class="nav-item">
         <a class="nav-link" href="listar">
           <i class="fas fa-fw fa-table"></i>
-          <span>CRUD</span></a>
+          <span>Produtos</span></a>
       </li>
 
       <!-- Divider -->

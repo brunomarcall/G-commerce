@@ -1,5 +1,7 @@
 <?php
 
+
+//Rotas relacionadas a aplicação e os usuários
 $rotas[''] = array(
     'rotas' => '',
     'controller' => 'Controllers\Paginas',
@@ -30,13 +32,11 @@ $rotas['relatorios'] = array(
     'metodo' => 'relatorios'
 );
 
-
 $rotas['esqueceuSenha'] = array(
     'rotas' => 'esqueceuSenha',
     'controller' => 'Controllers\Paginas',
     'metodo' => 'esqueceuSenha'
 );
-
 
 $rotas['404'] = array(
     'rotas' => '404',
@@ -62,7 +62,6 @@ $rotas['cadastro/usuario'] = array(
     'metodo' => 'cadastro'
 );
 
-
 $rotas['dashboard'] = array(
     'rotas' => 'dashboard',
     'controller' => 'Controllers\Paginas',
@@ -75,6 +74,8 @@ $rotas['logout'] = array(
     'metodo' => 'logout'
 );
 
+
+//Rotas relacionadas Produtos
 $rotas['listar-produtos'] = array(
     'rotas' => 'produtos/listar',
     'controller' => 'Controllers\Produtos',
@@ -105,12 +106,6 @@ $rotas['listar-produto'] = array(
     'metodo' => 'listarprodutos'
 );
 
-// $rotas['editar-produto'] = array(
-//     'rotas' => 'editar-produto',
-//     'controller' => 'Controllers\Produtos',
-//     'metodo' => 'editarProduto'
-// );
-
 $rotas['excluir-produto'] = array(
     'rotas' => 'excluirProduto',
     'controller' => 'Controllers\Produtos',
@@ -129,5 +124,36 @@ $rotas['updateProduto'] = array(
     'metodo' => 'updateProduto'
 );
 
-// var_dump($rotas);
+
+//Rotas relacionadas Vendas
+$rotas['listaVendas'] = array(
+    'rotas' => 'listaVendas',
+    'controller' => 'Controllers\Paginas',
+    'metodo' => 'listaVendas'
+);
+
+$rotas['cadastroVenda'] = array(
+    'rotas' => 'cadastroVenda',
+    'controller' => 'Controllers\Paginas',
+    'metodo' => 'cadastroVenda'
+);
+
+$rotas['inserirVenda'] = array(
+    'rotas' => 'inserirVenda',
+    'controller' => 'Controller\Vendas',
+    'metodo' => 'inserirVenda'
+);
+
+$rotas['updateVenda'] = array(
+    'rotas' => 'updateVenda',
+    'controller' => 'Controller\Vendas',
+    'metodo' => 'updateVenda'
+);
+
+$rotas['excluirVenda'] = array(
+    'rotas' => 'excluirVenda',
+    'controller' => 'Controller\Vendas',
+    'metodo' => 'excluirVenda'
+);
+
 ?>
