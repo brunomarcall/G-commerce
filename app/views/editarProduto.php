@@ -44,6 +44,10 @@
 
                   $id = $_GET['id'];
 
+                  $produtos = Produto::select()->where('id', $id)->get();
+
+                  foreach ($produtos as $dados) {
+                    
                 ?>
                 <h4>Formulário de Edição</h4>
         <form action="<?=BASE_URL?>updateProduto" method="post" style="margin-top: 20px">
@@ -54,15 +58,15 @@
             </div>
             <div class="form-group">
                 <label>Nome</label>
-                <input type="text" class="form-control" name="nome" placeholder="Insira o nome do Produto" required autocomplete="off">
+                <input type="text" class="form-control" name="nome"  value="<?php echo $dados['nome']?>" required autocomplete="off">
             </div>
             <div class="form-group">
                 <label>Categoria</label>
-                <input type="text" class="form-control" name="categoria" placeholder="Insira a categoria do Produto" required autocomplete="off">
+                <input type="text" class="form-control" name="categoria" value="<?php echo $dados['categoria']?>" required autocomplete="off">
             </div>
             <div class="form-group">
                 <label>Quantidade</label>
-                <input type="number" class="form-control" name="quantidade" placeholder="Insira a quantiade de Produtos" required autocomplete="off">
+                <input type="number" class="form-control" name="quantidade" value="<?php echo $dados['quantidade']?>" required autocomplete="off">
             </div>
            
             <div style="text-align: right">
@@ -70,6 +74,7 @@
                 <button type="submit" class="btn btn-sm btn-primary">Recadastrar</button>
             </div>
         </form>
+                  <?php } ?>
                 </div>
               </div>
             </div>

@@ -38,21 +38,30 @@
                 <div class="p-5">
                 <h4>Formulário de Cadastro</h4>
         <form action="<?=BASE_URL?>inserir" method="post" style="margin-top: 20px">
-        <div class="form-group">
-                <label>Id do Produto</label>
-                <input type="text" class="form-control" name="id" placeholder="Insira o ID do Produto" required  autocomplete="off">
-            </div>
             <div class="form-group">
                 <label>Nome</label>
                 <input type="text" class="form-control" name="nome" placeholder="Insira o nome do Produto" required autocomplete="off">
             </div>
             <div class="form-group">
-                <label>Categoria</label>
-                <input type="text" class="form-control" name="categoria" placeholder="Insira a categoria do Produto" required autocomplete="off">
+                <label>Categoria:</label><br>
+
+                <select class="form-control" name="categoria">
+                  <option value="">Categorias</option>
+                  <option value="1">Games</option>
+                  <option value="2">Eletrodomésticos</option>
+                  <option value="3">Celulares</option>
+                  <option value="4">Informática</option>
+                  <option value="5">Movéis</option>
+                  <option value="6">Moda</option>
+                </select>
             </div>
             <div class="form-group">
                 <label>Quantidade</label>
                 <input type="number" class="form-control" name="quantidade" placeholder="Insira a quantiade de Produtos" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label>Valor Unitário</label>
+                <input type="number" step="0.01" min="0.00" max="10000.00" class="form-control" name="valor" placeholder="Insira o valor unitário do Produto" required  autocomplete="off">
             </div>
            
             <div style="text-align: right">
