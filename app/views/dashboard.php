@@ -60,11 +60,11 @@
 
       <!-- Vendas -->
       <li class="nav-item">
-<<<<<<< HEAD
+
         <a class="nav-link" href="relatorios">
         <img src= "app/views/styles/img/svg/report.svg" width="20px" height="20px">
           <span>Relatório</span></a>
-=======
+
         <a class="nav-link" href="listaVendas">
           <i class="fas fa-fw fa-table"></i>
           <span>Vendas</span></a>
@@ -74,7 +74,7 @@
         <a class="nav-link" href="listar">
           <i class="fas fa-fw fa-table"></i>
           <span>Produtos</span></a>
->>>>>>> 256b15abe3bd58118ed30bda8d80d0974eb20821
+
       </li>
 
       <!-- Divider -->
