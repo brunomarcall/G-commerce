@@ -40,10 +40,10 @@
         <form action="<?=BASE_URL?>inserirVenda" method="post" style="margin-top: 20px">
         <div class="form-group">
                 <label>Id do Venda</label>
-                <input type="text" class="form-control" name="id" placeholder="Insira o ID do Venda" required required autocomplete="off">
+                <input type="number" class="form-control" name="id" placeholder="Insira o ID do Venda" required required autocomplete="off">
             </div>
             <div class="form-group">
-                <label>Nome</label>
+                <label>Valor</label>
                 <input type="number" class="form-control" name="nome" placeholder="Insira o valor do Venda" required autocomplete="off">
             </div>
             <div class="form-group">
@@ -63,7 +63,7 @@
             </div>
           
             <div style="text-align: right">
-                <a href="<?=BASE_URL?>/listaVendas" role="button" class="btn btn-sm btn-primary">Voltar</a>
+                <a href="<?=BASE_URL?>listaVendas" role="button" class="btn btn-sm btn-primary">Voltar</a>
                 <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
             </div>
         </form>
