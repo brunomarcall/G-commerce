@@ -63,7 +63,7 @@
                 <hr>
                 
               </form>
-              <?=isset($_SESSION['erro'])?>
+              
               
               <div class="text-center">
                 <a class="small" href="<?=BASE_URL?>/logout">Voltar</a>
