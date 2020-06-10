@@ -97,10 +97,9 @@ class Autenticacao extends Controlador{
         /**
          * Pegando os dados do formulário de cadastro.
          */
-        $nome = 
-            ucfirst(trim($_POST['nome'])).' '.
-            ucfirst(trim($_POST['sobrenome']));
-        $email = $_POST['email'];
+        $nome       = ucfirst(trim($_POST['nome']));
+        $cpfcnpj    = $_POST['cpfcnpj'];
+        $email      = $_POST['email'];
         
         /**
          * Fazendo a verificação da senha.
@@ -114,11 +113,11 @@ class Autenticacao extends Controlador{
         /**
          * Caso tudo esteja correto um novo usuário será criado.
          */
-        if ($nome && $email && $senha)
+        if ($nome && $cpfcnpj && $email && $senha)
         {
             if (count(Autenticacao::verificarEmail($email) <= 0))
             {
-                $_SESSION['token'] = Autenticacao::adicionarUsuario($nome, $email, $senha);
+                $_SESSION['token'] = Autenticacao::adicionarUsuario($nome, $cpfcnpj, $email, $senha);
                 $this->redirecionar(); 
             } else {
                 $_SESSION['erro'] = 'Email já cadastrado.';
@@ -129,13 +128,14 @@ class Autenticacao extends Controlador{
  
     }
 
-    public static function adicionarUsuario($nome, $email, $senha){
+    public static function adicionarUsuario($nome, $cpfcnpj, $email, $senha){
         $token = md5(time().rand(0, 9999));
 
         Usuario::insert([
             'email'=>$email,
             'senha'=>$senha,
             'nome'=>$nome,
+            'cpfcnpj'=>$cpfcnpj,
             'token'=>$token
         ])->execute();
         $_SESSION['erro'] = '';
