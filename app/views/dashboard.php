@@ -51,18 +51,30 @@
       <hr class="sidebar-divider">
 
       
-      <!-- Nav Item - Charts -->
+      <!-- Gráficos -->
       <li class="nav-item">
         <a class="nav-link" href="graficos">
         <img src= "app/views/styles/img/svg/graph.svg" width="20px" height="20px"> 
           <span>Gráficos</span></a>
       </li>
 
-      <!-- Nav Item - Tables -->
+      <!-- Vendas -->
       <li class="nav-item">
+<<<<<<< HEAD
         <a class="nav-link" href="relatorios">
         <img src= "app/views/styles/img/svg/report.svg" width="20px" height="20px">
           <span>Relatório</span></a>
+=======
+        <a class="nav-link" href="listaVendas">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Vendas</span></a>
+      </li>
+      <!-- Produtos -->
+      <li class="nav-item">
+        <a class="nav-link" href="listar">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Produtos</span></a>
+>>>>>>> 256b15abe3bd58118ed30bda8d80d0974eb20821
       </li>
 
       <!-- Divider -->
@@ -89,7 +101,7 @@
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-
+          
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
@@ -123,7 +135,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Caldi_Cana</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$_SESSION["usuario"] ?? ""?></span>
                 <img class="img-profile rounded-circle" src="app/views/styles/img/img/Logo_circle.png">
               </a>
               <!-- Dropdown - User Information -->

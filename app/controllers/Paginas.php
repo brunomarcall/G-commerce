@@ -47,4 +47,47 @@ class Paginas extends Controlador {
         $this->views("cadastro");
     }
 
+    public function cadastrarProduto(){
+        if($this->estaLogado()){
+            $this->views("cadastrarProduto");
+        }else{
+            $this->redirecionar();
+        }
+    }
+
+    public function listarprodutos() {
+        if($this->estaLogado()) {
+            $this->views("listar");
+        } else {
+            $this->redirecionar();
+        }
+    }
+
+    public function editarProduto() {
+        if($this->estaLogado()) {
+            $this->views("editarProduto");
+        } else {
+            $this->redirecionar("listar");
+        }
+    }
+
+    public function listaVendas() {
+        if($this->estaLogado()) {
+            $this->views('listaVendas');
+        } else {
+            $this->redirecionar();
+        }
+        
+    }
+
+    public function cadastroVenda() {
+        if($this->estaLogado()) {
+            $this->views('cadastroVenda');
+        } else {
+            $this->redirecionar();
+        }
+    }
+
+
+
 }

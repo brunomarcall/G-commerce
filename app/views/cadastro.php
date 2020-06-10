@@ -39,31 +39,24 @@
               <form action="<?=BASE_URL?>cadastro/usuario" method="post" class="user">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input name="nome" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nome">
+                    <input name="nome" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nome" equired autocomplete="off">
                   </div>
                   <div class="col-sm-6">
-                    <input name="sobrenome" type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Sobrenome">
+                    <input name="cpfcnpj" type="text" class="form-control form-control-user" id="exampleLastName" placeholder="CPF/CNPJ"equired autocomplete="off">
                   </div>
                 </div>
                 <div class="form-group">
-                  <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email">
+                  <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email"equired autocomplete="off">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input name="senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha">
+                    <input name="senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha"equired autocomplete="off">
                   </div>
                   <div class="col-sm-6">
-                    <input name="confirme" type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Confirme sua senha">
+                    <input name="confirme" type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Confirme sua senha"equired autocomplete="off">
                   </div>
                 </div>
-                <div class="form-group row">
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input name="cpf_cnpj" type="number" class="form-control form-control-user" id="exampleInputPassword" placeholder="CPF/CNPJ">
-                  </div>
-                  <div class="col-sm-6">
-                    <input name="confirme" type="number" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Telefone">
-                  </div>
-                </div>
+               
                 <button type="submit" class="btn btn-primary btn-user btn-block">
                       Entrar
                     </button>

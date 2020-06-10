@@ -20,9 +20,10 @@ class Modelo {
                 /**
                  * Alteração do script padrão para suportas as consultas realizadas no PgAdmin.
                  */
-                $statement = $connection->prepare(str_replace("`", "", $queryString));
-
+                $queryString = str_replace("`", "", $queryString);
+                $statement = $connection->prepare($queryString); 
                 $statement->execute($queryParameters);
+                
 
                 if ($query instanceof FetchableInterface)
                 {
@@ -59,5 +60,4 @@ class Modelo {
         self::_checkH();
         return self::$_h->delete();
     }
-
 }
