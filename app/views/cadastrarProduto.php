@@ -48,18 +48,10 @@
                 <select class="form-control" name="categoria">
                   <option value="0">Categorias</option>
                   <?php
-                    
                     foreach($dadosView['categorias'] as $itens => $value){
                       echo "<option value=$itens>".$value['nome']."</option>";
-                    }
-                     
+                    }  
                   ?>
-                  <!-- <option value="1">Games</option>
-                  <option value="2">Eletrodomésticos</option>
-                  <option value="3">Celulares</option>
-                  <option value="4">Informática</option>
-                  <option value="5">Movéis</option>
-                  <option value="6">Moda</option> -->
                 </select>
             </div>
             <div class="form-group">
