@@ -56,7 +56,7 @@
             </div>
            
             <div style="text-align: right">
-                <a href="<?=BASE_URL?>/listar" role="button" class="btn btn-sm btn-primary">Voltar</a>
+                <a href="<?=BASE_URL?>listar" role="button" class="btn btn-sm btn-primary">Voltar</a>
                 <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
             </div>
         </form>
