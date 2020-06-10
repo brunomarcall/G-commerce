@@ -50,7 +50,7 @@ class Paginas extends Controlador {
 
     public function cadastrarProduto(){
         if($this->estaLogado()){
-            $categorias = Categoria::select('nome')->get();
+            $categorias = Categoria::select()->get();
             $this->addDadosPagina('categorias', array_values($categorias));
             $this->views("cadastrarProduto");
         }else{

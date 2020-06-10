@@ -13,21 +13,21 @@ Class Produtos extends Controlador {
         parent::__construct();
     }
 
-    public static function verificarProduto($id)
+    public static function verificarProduto($nome)
     {
-        return (Produto::select()->where('id', $id)->get()) ?? false;
+        return (Produto::select()->where('nome', $nome)->get()) ?? false;
     }
 
     public function inserirProdutos(){
-        $id = $_POST['id'] ?? null;
-        $categoria = $_POST['categoria'] ?? null;
         $nome = $_POST['nome'] ?? null;
+        $categoria = $_POST['categoria'] ?? null;
         $quantidade = $_POST['quantidade'] ?? null;
+        $valor = $_POST['valor'] ?? null;
 
-        if($id && $categoria && $nome && $quantidade){
-            $produto = Produtos::verificarProduto($id);
+        if($nome && $categoria && $quantidade && $valor){
+            $produto = Produtos::verificarProduto($nome);
             if(count($produto) <= 0){
-                $_SESSION['codigo_produto'] = Produtos::adicionarProduto($id, $categoria, $nome, $quantidade);
+                $_SESSION['codigo_produto'] = Produtos::adicionarProduto($categoria, $nome, $quantidade, $valor);
                 $_SESSION['cadastrado'] = 'Produto Cadastrado com Sucesso';
                 $_SESSION['id'] = $id;
                 $this->redirecionar('listar');
@@ -40,14 +40,15 @@ Class Produtos extends Controlador {
         $this->redirecionar();
     }
 
-    public function adicionarProduto($id, $categoria, $nome, $quantidade){
+    public function adicionarProduto($categoria, $nome, $quantidade, $valor){
         try {
             Produto::insert([
-                'id'=>$id,
-                'categoria'=>$categoria,
                 'nome'=>$nome,
-                'quantidade'=>$quantidade,
-                'codigo_produto'=>0
+                'valor'=>$valor,
+                'id_categoria'=>$categoria,
+                'id_statusproduto'=>1,
+                'id_usuario'=>$_SESSION['user']['id'],
+                'quantidade'=>$quantidade
             ])->execute();
         } catch (Exception $e) {
             echo 'Exceção capturada: ',  $e->getMessage(), "\n";

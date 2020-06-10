@@ -27,11 +27,13 @@ class Autenticacao extends Controlador{
             if(count($dados) > 0)
             {
                 $usuario = new Usuario(
+                    $dados[0]['id'],
                     $dados[0]['nome'], 
                     $dados[0]['senha'],
                     $dados[0]['email']
                 );
                 $_SESSION['usuario'] = $dados[0]['nome'];
+                $_SESSION['user'] = $dados[0];
                 return $usuario;
             }
         }

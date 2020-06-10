@@ -5,11 +5,13 @@ use Config\Modelo;
 
 class Usuario extends Modelo {
     
+    private $id;
     private $usuario;
     private $email;
     private $senha;
 
-    public function __construct($usuario, $senha, $email){
+    public function __construct($id, $usuario, $senha, $email){
+        $this->id = $id;
         $this->usuario = $usuario;
         $this->email = $email;
         $this->senha = $senha;

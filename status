@@ -1,0 +1,169 @@
+[33mcommit 86fa398c138ce00a3159307e4ffd4e20bd90336e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Nidsonr1 <nidsoncampos@hotmail.com>
+Date:   Wed Jun 10 00:36:46 2020 -0300
+
+    Ajustes no Front:
+    -Removido o campo ID do produto;
+    -Campo "Categoria" alterado para um <select>;
+    -Adicionado campo para valor unitário do produto;
+    
+    Ajustes no Back:
+    -Botão editar agora preenche os campos automaticamente;
+    -Botão excluir remove o produto do banco;
+
+[33mcommit 71b6d39d9580fc083c2618e3e0bd6176b9014444[m
+Author: Bruno Marcal <brunomarcal88@gmail.com>
+Date:   Tue Jun 9 23:51:05 2020 -0300
+
+    agr vai
+
+[33mcommit ad87189b5a8334b7713ae4fe9b1a7f1fdc6c00d6[m
+Merge: fb896df d5c83e7
+Author: Bruno Marcal <brunomarcal88@gmail.com>
+Date:   Tue Jun 9 23:34:19 2020 -0300
+
+    Merge branch 'master' of https://github.com/brunomarcall/G-commerce
+
+[33mcommit fb896df3e25cd04f7cf49293301a52f441a1c487[m
+Merge: cefada5 256b15a
+Author: Bruno Marcal <brunomarcal88@gmail.com>
+Date:   Tue Jun 9 23:32:36 2020 -0300
+
+    e tome att
+
+[33mcommit d5c83e76f4b92352f87909aa50ee27d673214823[m
+Author: Nidsonr1 <nidsoncampos@hotmail.com>
+Date:   Tue Jun 9 23:13:53 2020 -0300
+
+    Ajustes nos botões de voltar nos cadastros
+
+[33mcommit 256b15abe3bd58118ed30bda8d80d0974eb20821[m
+Author: Nidsonr1 <nidsoncampos@hotmail.com>
+Date:   Sun Jun 7 17:32:58 2020 -0300
+
+    -Ajustes:
+    .Foram feitas todas as rotas relacionadas a Venda;
+    .Ajustes na parte de Front de Vendas;
+    .Ajuste nos formularios;
+    .Problemas com o Banco;
+
+[33mcommit 35312d7ff2a304e31660cdebf33ef239f7121cff[m
+Author: Nidsonr1 <nidsoncampos@hotmail.com>
+Date:   Fri Jun 5 20:49:02 2020 -0300
+
+    Atualização J.
+
+[33mcommit 1061b1bc7c88176d669d13e5e5976fce1a919173[m
+Author: Nidsonr1 <nidsoncampos@hotmail.com>
+Date:   Fri Jun 5 14:49:11 2020 -0300
+
+    Adaptando front do crud
+
+[33mcommit fafd037896350dc6beb3f7e93349f24c6d0bbe04[m
+Author: Nidsonr1 <nidsoncampos@hotmail.com>
+Date:   Fri Jun 5 14:20:05 2020 -0300
+
+    Finalização do Crud
+
+[33mcommit 439f210179598618dc07eff6601ed98a5eb2f135[m
+Author: Nidsonr1 <nidsoncampos@hotmail.com>
+Date:   Fri Jun 5 10:38:42 2020 -0300
+
+    Criação do Model Venda
+
+[33mcommit d1263cd5f28bc72263aeed37de205533e6606b3e[m
+Author: Nidsonr1 <nidsoncampos@hotmail.com>
+Date:   Wed Jun 3 11:41:45 2020 -0300
+
+    -Ajustes Realizados
+    -Rota para excluir produtos feita;
+    -Produtos excluindo;
+    -Rota para editar produtos feita;
+    -Edição NÃO sendo realizada;
+    -Ajustes no front-end;
+
+[33mcommit 834e3189ac1808eb0af3859c5e5f43ebaacc346d[m
+Author: Nidsonr1 <nidsoncampos@hotmail.com>
+Date:   Wed Jun 3 01:03:31 2020 -0300
+
+    -Feito a listagens dos produtos;
+    -Ajustado as rotas para listar, cadastrarProduto;
+    -Ajustado o css de acordo com G-commerce para a listagem;
+
+[33mcommit cefada5453c58b90b0705125c5ec08a68154e05a[m
+Author: Bruno Marcal <brunomarcal88@gmail.com>
+Date:   Tue Jun 2 22:11:50 2020 -0300
+
+    att front
+
+[33mcommit 402418b5bbda84a6b0edadae50deb67024ab1fb3[m
+Author: Nidson <nidsoncampos@hotmail.com>
+Date:   Thu May 28 17:19:31 2020 -0300
+
+    ligação do banco atualizado e funcionando
+
+[33mcommit de12c75fcc069d235c289be3b84c12e0dc2f630c[m
+Author: Nidson <nidsoncampos@hotmail.com>
+Date:   Thu May 28 15:00:29 2020 -0300
+
+    Problemas com o BD p/ cadastro dos produtos
+
+[33mcommit 63d250f8243b14b5592b8ce9ab87bc169a906841[m
+Author: Bruno Marcal <brunomarcal88@gmail.com>
+Date:   Thu May 14 12:39:36 2020 -0300
+
+    atualizando
+
+[33mcommit bfc7b019713af787337e715592a6012d3d9f6228[m
+Author: Bruno Marcal <brunomarcal88@gmail.com>
+Date:   Sun Apr 26 17:49:52 2020 -0300
+
+    bug isset resolvido
+
+[33mcommit 33244fff50fd42795ad15d3c9d0670c3daf329f8[m
+Author: FalLying <jonasexplore@gmail.com>
+Date:   Sun Apr 26 17:28:20 2020 -0300
+
+    fix bugs
+
+[33mcommit 926357d0556edf18b01bd20146accd31a566686b[m
+Author: FalLying <jonasexplore@gmail.com>
+Date:   Sun Apr 26 15:30:03 2020 -0300
+
+    Setting classes and conexion with database
+
+[33mcommit f57cb2a4d283066e670537d2e337cf439bd1dcd6[m
+Author: Nidsonr1 <nidsoncampos@hotmail.com>
+Date:   Fri Apr 24 20:09:36 2020 -0300
+
+    alterações no padrão mvc e introdução de sessions
+
+[33mcommit ff7d4ddc685c77498aff993cc1b831d06b238e5c[m
+Author: Nidsonr1 <nidsoncampos@hotmail.com>
+Date:   Thu Apr 23 00:23:59 2020 -0300
+
+    Todos as views e rotas feitas
+
+[33mcommit 7b247d7f161ebefdb4f93a4608646a37f5e8976a[m
+Author: Nidsonr1 <nidsoncampos@hotmail.com>
+Date:   Wed Apr 22 23:54:03 2020 -0300
+
+    esqueceuSenha adicionado
+
+[33mcommit 12a7c824cc000fe223c69b98af04f1959fcb5c81[m
+Author: Nidsonr1 <nidsoncampos@hotmail.com>
+Date:   Wed Apr 22 23:01:47 2020 -0300
+
+    atualização do projeto
+
+[33mcommit 0535b2f122e0683aa1c4024040c9151c1dc3d456[m
+Author: Bruno Marcal <brunomarcal88@gmail.com>
+Date:   Wed Apr 22 20:27:00 2020 -0300
+
+    up front
+
+[33mcommit 7581cddc03f91088f8c44ac0400dbe187054344f[m
+Author: brunomarcall <53955930+brunomarcall@users.noreply.github.com>
+Date:   Wed Apr 22 20:19:41 2020 -0300
+
+    Create README.md

@@ -49,15 +49,22 @@
                   use Config\Modelo;
                   use Models\Produto;
 
-                  $produtos = Produto::select()->get();
-
+                  $produtos = Produto::
+                    select(['produtos.id','produtos.nome', 'b.nome nmcategoria', 'produtos.quantidade'])
+                    ->innerJoin('categorias as b', function($join) 
+                    {
+                        $join->on('produtos.id_categoria', '=', 'b.id');
+                    })
+                    ->where('id_usuario', $_SESSION['user']['id'])
+                    ->get();
+                
                   foreach ($produtos as $item) {
 
 
                   ?>
                     <td><?php echo $item['id'] ?></td>
                     <td><?php echo $item['nome'] ?></td>
-                    <td><?php echo $item['categoria'] ?></td>
+                    <td><?php echo $item['nmcategoria'] ?></td>
                     <td><?php echo $item['quantidade'] ?></td>
                     <td>
                       <a class="btn btn-warning btn-sm" href="<?=BASE_URL?>editarProduto?id=<?php echo $item['id']?>" role="button">Editar</a>

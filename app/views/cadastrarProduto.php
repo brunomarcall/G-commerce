@@ -21,7 +21,6 @@
 </head>
 
 <body class="bg-gradient-primary">
-  <?php var_dump($dadosView['categorias']); ?>
   <div class="container">
 
     <!-- Outer Row -->
@@ -37,37 +36,37 @@
               <div class="col-lg-6">
                 <div class="p-5">
                 <h4>Formulário de Cadastro</h4>
-        <form action="<?=BASE_URL?>inserir" method="post" style="margin-top: 20px">
-            <div class="form-group">
-                <label>Nome</label>
-                <input type="text" class="form-control" name="nome" placeholder="Insira o nome do Produto" required autocomplete="off">
-            </div>
-            <div class="form-group">
-                <label>Categoria:</label><br>
-
-                <select class="form-control" name="categoria">
-                  <option value="0">Categorias</option>
-                  <?php
-                    foreach($dadosView['categorias'] as $itens => $value){
-                      echo "<option value=$itens>".$value['nome']."</option>";
-                    }  
-                  ?>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Quantidade</label>
-                <input type="number" class="form-control" name="quantidade" placeholder="Insira a quantiade de Produtos" required autocomplete="off">
-            </div>
-            <div class="form-group">
-                <label>Valor Unitário</label>
-                <input type="number" step="0.01" min="0.00" max="10000.00" class="form-control" name="valor" placeholder="Insira o valor unitário do Produto" required  autocomplete="off">
-            </div>
-           
-            <div style="text-align: right">
-                <a href="<?=BASE_URL?>listar" role="button" class="btn btn-sm btn-primary">Voltar</a>
-                <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
-            </div>
-        </form>
+                  <form action="<?=BASE_URL?>inserir" method="post" style="margin-top: 20px">
+                      <div class="form-group">
+                          <label>Nome</label>
+                          <input type="text" class="form-control" name="nome" placeholder="Insira o nome do Produto" required autocomplete="off">
+                      </div>
+                      <div class="form-group">
+                          <label>Categoria:</label><br>
+                          
+                          <select class="form-control" name="categoria">
+                            <option value="0">Categorias</option>
+                            <?php
+                              foreach($dadosView['categorias'] as $itens => $value){
+                                echo "<option value=".$value['id'].">".$value['nome']."</option>";
+                              }  
+                            ?>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label>Quantidade</label>
+                          <input type="number" class="form-control" name="quantidade" placeholder="Insira a quantiade de Produtos" required autocomplete="off">
+                      </div>
+                      <div class="form-group">
+                          <label>Valor Unitário</label>
+                          <input type="number" step="0.01" min="0.00" max="10000.00" class="form-control" name="valor" placeholder="Insira o valor unitário do Produto" required  autocomplete="off">
+                      </div>
+                    
+                      <div style="text-align: right">
+                          <a href="<?=BASE_URL?>listar" role="button" class="btn btn-sm btn-primary">Voltar</a>
+                          <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
+                      </div>
+                  </form>
                 </div>
               </div>
             </div>
