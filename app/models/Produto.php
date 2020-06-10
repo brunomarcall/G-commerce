@@ -3,6 +3,7 @@ namespace Models;
 
 use Config\Modelo;
 
+
 class Produto extends Modelo {
     
     private $id;

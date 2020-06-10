@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Controllers\Controlador;
 use Models\Usuario;
+use Models\Categoria;
 
 
 class Paginas extends Controlador {
@@ -49,6 +50,8 @@ class Paginas extends Controlador {
 
     public function cadastrarProduto(){
         if($this->estaLogado()){
+            $categorias = Categoria::select('nome')->get();
+            $this->addDadosPagina('categorias', array_values($categorias));
             $this->views("cadastrarProduto");
         }else{
             $this->redirecionar();
