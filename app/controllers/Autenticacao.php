@@ -27,13 +27,11 @@ class Autenticacao extends Controlador{
             if(count($dados) > 0)
             {
                 $usuario = new Usuario(
-                    $dados[0]['id'],
                     $dados[0]['nome'], 
                     $dados[0]['senha'],
                     $dados[0]['email']
                 );
                 $_SESSION['usuario'] = $dados[0]['nome'];
-                $_SESSION['user'] = $dados[0];
                 return $usuario;
             }
         }
@@ -81,6 +79,9 @@ class Autenticacao extends Controlador{
         }
         $usuario = $_POST['email'] ?? null;
         $senha = $_POST['senha'] ?? null;
+    //Transforma a senha inserida no campo em criptografia e compara
+        $senha = md5($senha);
+
 
         if(!empty($usuario) && !empty($senha)){
             
@@ -99,9 +100,10 @@ class Autenticacao extends Controlador{
         /**
          * Pegando os dados do formulário de cadastro.
          */
-        $nome       = ucfirst(trim($_POST['nome']));
-        $cpfcnpj    = $_POST['cpfcnpj'];
-        $email      = $_POST['email'];
+        $nome = 
+            ucfirst(trim($_POST['nome'])).' '.
+            ucfirst(trim($_POST['sobrenome']));
+        $email = $_POST['email'];
         
         /**
          * Fazendo a verificação da senha.
@@ -115,11 +117,11 @@ class Autenticacao extends Controlador{
         /**
          * Caso tudo esteja correto um novo usuário será criado.
          */
-        if ($nome && $cpfcnpj && $email && $senha)
+        if ($nome && $email && $senha)
         {
             if (count(Autenticacao::verificarEmail($email) <= 0))
             {
-                $_SESSION['token'] = Autenticacao::adicionarUsuario($nome, $cpfcnpj, $email, $senha);
+                $_SESSION['token'] = Autenticacao::adicionarUsuario($nome, $email, $senha);
                 $this->redirecionar(); 
             } else {
                 $_SESSION['erro'] = 'Email já cadastrado.';
@@ -130,14 +132,14 @@ class Autenticacao extends Controlador{
  
     }
 
-    public static function adicionarUsuario($nome, $cpfcnpj, $email, $senha){
+    public static function adicionarUsuario($nome, $email, $senha){
         $token = md5(time().rand(0, 9999));
+        $senha = md5($senha);
 
         Usuario::insert([
             'email'=>$email,
             'senha'=>$senha,
             'nome'=>$nome,
-            'cpfcnpj'=>$cpfcnpj,
             'token'=>$token
         ])->execute();
         $_SESSION['erro'] = '';
