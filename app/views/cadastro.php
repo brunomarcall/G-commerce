@@ -39,7 +39,7 @@
               <form action="<?=BASE_URL?>cadastro/usuario" method="post" class="user">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input name="nome" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nome" equired autocomplete="off" maxlengh>
+                    <input name="nome" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nome" equired autocomplete="off" >
                   </div>
                   <div class="col-sm-6">
                     <input name="cpfcnpj" type="text" class="form-control form-control-user" id="exampleLastName" placeholder="CPF/CNPJ"equired autocomplete="off">
