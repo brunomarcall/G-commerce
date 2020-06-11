@@ -41,9 +41,13 @@ class Controlador{
     }
     
     public function deslogar(){
-            unset($_SESSION['token']);
-            session_destroy();
-        }
+        unset($_SESSION['token']);
+        session_destroy();
+    }
+    public static function moeda($get_valor) {
+        $valor = str_replace('.', ',', $get_valor);
+        return $valor;
+    }
 }
 
 ?>

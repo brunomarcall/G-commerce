@@ -27,6 +27,7 @@ Class Produtos extends Controlador {
         if($nome && $categoria && $quantidade && $valor){
             $produto = Produtos::verificarProduto($nome);
             if(count($produto) <= 0){
+                
                 $_SESSION['codigo_produto'] = Produtos::adicionarProduto($categoria, $nome, $quantidade, $valor);
                 $_SESSION['cadastrado'] = 'Produto Cadastrado com Sucesso';
                 // $_SESSION['id'] = $id;
@@ -44,7 +45,7 @@ Class Produtos extends Controlador {
         try {
             Produto::insert([
                 'nome'=>$nome,
-                'valor'=>$valor,
+                'valor'=>Controlador::moeda($valor),
                 'id_categoria'=>$categoria,
                 'id_statusproduto'=>1,
                 'id_usuario'=>$_SESSION['user']['id'],
