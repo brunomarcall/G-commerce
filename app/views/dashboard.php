@@ -66,13 +66,13 @@
           <span>Relatório</span></a>
 
         <a class="nav-link" href="listaVendas">
-          <i class="fas fa-fw fa-table"></i>
+        <img src= "app/views/styles/img/svg/wallet.svg" width="20px" height="20px">
           <span>Vendas</span></a>
       </li>
       <!-- Produtos -->
       <li class="nav-item">
         <a class="nav-link" href="listar">
-          <i class="fas fa-fw fa-table"></i>
+        <img src= "app/views/styles/img/svg/deliveries.svg" width="20px" height="20px">
           <span>Produtos</span></a>
 
       </li>
