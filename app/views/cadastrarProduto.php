@@ -36,15 +36,15 @@
               <div class="col-lg-6">
                 <div class="p-5">
                 <h4>Formulário de Cadastro</h4>
-                  <form action="<?=BASE_URL?>inserir" method="post" style="margin-top: 20px">
-                      <div class="form-group">
+                  <form action="<?=BASE_URL?>inserir" method="post" style="margin-top: 20px" class="user">
+                      <div class="form-group ">
                           <label>Nome</label>
-                          <input type="text" class="form-control" name="nome" placeholder="Insira o nome do Produto" required autocomplete="off">
+                          <input type="text" class="form-control form-control-user" name="nome" placeholder="Insira o nome do Produto" required autocomplete="off">
                       </div>
                       <div class="form-group">
                           <label>Categoria:</label><br>
                           
-                          <select class="form-control" name="categoria">
+                          <select class="form-control-user form-control-checkbox form-control" name="categoria">
                             <option value="0">Categorias</option>
                             <?php
                               foreach($dadosView['categorias'] as $itens => $value){
@@ -55,11 +55,11 @@
                       </div>
                       <div class="form-group">
                           <label>Quantidade</label>
-                          <input type="number" class="form-control" name="quantidade" placeholder="Insira a quantiade de Produtos" required autocomplete="off">
+                          <input type="number" class="form-control form-control-user" name="quantidade" placeholder="Insira a quantiade de Produtos" required autocomplete="off">
                       </div>
                       <div class="form-group">
                           <label>Valor Unitário</label>
-                          <input type="number" step="0.01" min="0.00" max="10000.00" class="form-control" name="valor" placeholder="Insira o valor unitário do Produto" required  autocomplete="off">
+                          <input type="number" step="0.01" min="0.00" max="10000.00" class="form-control form-control-user" name="valor" placeholder="Insira o valor unitário do Produto" required  autocomplete="off">
                       </div>
                     
                       <div style="text-align: right">
