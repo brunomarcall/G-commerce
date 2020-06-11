@@ -42,6 +42,7 @@
                   </div>
                   <form action="<?=BASE_URL?>login" method="post" class="user">
                     <div class="form-group">
+                    <?=$_SESSION["erro"] ?? ""?>
                       <input name="email" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email ..." required autocomplete="off">
                     </div>
                     <div class="form-group">
@@ -58,7 +59,7 @@
                     <hr>
                   </form>
 
-                  <?=$_SESSION["erro"] ?? ""?>
+                  
                   
                   <div class="text-center">
                     <a class="small" href="cadastro">Criar sua conta!</a>
