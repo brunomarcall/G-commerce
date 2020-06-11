@@ -27,6 +27,7 @@ class Autenticacao extends Controlador{
             if(count($dados) > 0)
             {
                 $usuario = new Usuario(
+                    $dados[0]['id'],
                     $dados[0]['nome'], 
                     $dados[0]['senha'],
                     $dados[0]['email']
@@ -82,9 +83,6 @@ class Autenticacao extends Controlador{
     //Transforma a senha inserida no campo em criptografia e compara
         $senha = md5($senha);
 
-
-        $senha = md5($senha);
-
         if(!empty($usuario) && !empty($senha)){
             
             $data = Autenticacao::verificarLogin($usuario, $senha);
@@ -137,10 +135,7 @@ class Autenticacao extends Controlador{
     public static function adicionarUsuario($nome, $email, $senha){
         $token = md5(time().rand(0, 9999));
         $senha = md5($senha);
-<<<<<<< HEAD
-=======
 
->>>>>>> e9f5d0b07a945118f47e1425c2725297aea3634e
         Usuario::insert([
             'email'=>$email,
             'senha'=>$senha,
