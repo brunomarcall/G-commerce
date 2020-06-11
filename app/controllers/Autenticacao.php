@@ -33,6 +33,7 @@ class Autenticacao extends Controlador{
                     $dados[0]['email']
                 );
                 $_SESSION['usuario'] = $dados[0]['nome'];
+                $_SESSION['user'] = $dados[0];
                 return $usuario;
             }
         }
