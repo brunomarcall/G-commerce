@@ -41,10 +41,10 @@
                           <label>Nome</label>
                           <input type="text" class="form-control form-control-user" name="nome" placeholder="Insira o nome do Produto" required autocomplete="off">
                       </div>
-                      <div class="form-group">
+                      <div class="form-group" >
                           <label>Categoria:</label><br>
                           
-                          <select class="form-control-user form-control-checkbox form-control" name="categoria">
+                          <select class="form-control" name="categoria" style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
                             <option value="0">Categorias</option>
                             <?php
                               foreach($dadosView['categorias'] as $itens => $value){
