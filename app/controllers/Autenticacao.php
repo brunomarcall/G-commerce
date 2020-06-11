@@ -83,6 +83,8 @@ class Autenticacao extends Controlador{
         $senha = md5($senha);
 
 
+        $senha = md5($senha);
+
         if(!empty($usuario) && !empty($senha)){
             
             $data = Autenticacao::verificarLogin($usuario, $senha);
