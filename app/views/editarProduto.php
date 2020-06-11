@@ -50,42 +50,44 @@
                     
                 ?>
                 <h4>Formulário de Edição</h4>
-        <form action="<?=BASE_URL?>updateProduto" method="post" style="margin-top: 20px">
-        <div class="form-group">
-                <label>Código do Produto</label>
-                <input type="text" class="form-control" name="id" value="<?php echo $id?>"  disabled>
-                <input type="text" class="form-control" name="idUp" value="<?php echo $id?>"  style="display: none;">
-            </div>
-            <div class="form-group">
-                <label>Nome</label>
-                <input type="text" class="form-control" name="nome"  value="<?php echo $dados['nome']?>" required autocomplete="off">
-            </div>
-            <div class="form-group">
+                    <form action="<?=BASE_URL?>updateProduto" method="post" style="margin-top: 20px">
+                    <div class="form-group">
+                            <label>Código do Produto</label>
+                            <input type="text" class="form-control" name="id" value="<?php echo $id?>" readonly="true">
+                            <!-- <input type="text" class="form-control" name="idUp" value="<?php echo $id?>"  style="display: none;"> -->
+                        </div>
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <input type="text" class="form-control" name="nome"  value="<?php echo $dados['nome']?>" required autocomplete="off">
+                        </div>
+                        <div class="form-group">
                           <label>Categoria:</label><br>
                           
                           <select class="form-control" name="categoria">
                             <option value="0">Categorias</option>
                             <?php
+                              
                               foreach($dadosView['categorias'] as $itens => $value){
-                                echo "<option value=".$value['id'].">".$value['nome']."</option>";
+                                $selected = ($dados['id_categoria'] == $value['id']) ? "selected=\"selected\"" : null;
+                                echo "<option value=".$value['id']." $selected>".$value['nome']."</option>";
                               }  
                             ?>
                           </select>
-                      </div>
-            <div class="form-group">
-                <label>Quantidade</label>
-                <input type="number" class="form-control" name="quantidade" value="<?php echo $dados['quantidade']?>" required autocomplete="off">
-            </div>
-            <div class="form-group">
-                <label>Valor Unitário</label>
-                <input type="money" step="0.01" min="0.00" max="10000.00" class="form-control" name="valor" value="<?php echo $dados['valor'] ?>" required  autocomplete="off">
-            </div>
-           
-            <div style="text-align: right">
-                <a href="<?=BASE_URL?>listar" role="button" class="btn btn-sm btn-primary">Voltar</a>
-                <button type="submit" class="btn btn-sm btn-primary">Recadastrar</button>
-            </div>
-        </form>
+                        </div>
+                        <div class="form-group">
+                            <label>Quantidade</label>
+                            <input type="number" class="form-control" name="quantidade" value="<?php echo $dados['quantidade']?>" required autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label>Valor Unitário</label>
+                            <input type="money" step="0.01" min="0.00" max="10000.00" class="form-control" name="valor" value="<?php echo $dados['valor'] ?>" required  autocomplete="off">
+                        </div>
+                      
+                        <div style="text-align: right">
+                            <a href="<?=BASE_URL?>listar" role="button" class="btn btn-sm btn-primary">Voltar</a>
+                            <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+                        </div>
+                    </form>
                   <?php } ?>
                 </div>
               </div>

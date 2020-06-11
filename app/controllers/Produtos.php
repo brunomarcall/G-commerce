@@ -62,25 +62,17 @@ Class Produtos extends Controlador {
     }
 
     public function updateProduto() {
-        $id = $_GET['id'];
+        $id = $_POST['id'];
         $nome = $_POST['nome'];
         $categoria = $_POST['categoria'];
         $quantidade = $_POST['quantidade'];
         $valor = $_POST['valor'];
-    
-        Produto::update()->set('nome', $nome)
-        ->where('id', $id)
-        ->execute();
 
-        Produto::update()->set('id_categoria', $categoria)
-        ->where('id', $id)
-        ->execute();
-
-        Produto::update()->set('quantidade', $quantidade)
-        ->where('id', $id)
-        ->execute();
-
-        Produto::update()->set('valor', $valor)
+        Produto::update()
+            ->set('nome', $nome)
+            ->set('id_categoria', $categoria)
+            ->set('quantidade', $quantidade)
+            ->set('valor', $valor)
         ->where('id', $id)
         ->execute();
     
