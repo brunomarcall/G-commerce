@@ -29,7 +29,7 @@ Class Produtos extends Controlador {
             if(count($produto) <= 0){
                 $_SESSION['codigo_produto'] = Produtos::adicionarProduto($categoria, $nome, $quantidade, $valor);
                 $_SESSION['cadastrado'] = 'Produto Cadastrado com Sucesso';
-                $_SESSION['id'] = $id;
+                // $_SESSION['id'] = $id;
                 $this->redirecionar('listar');
             }else {
                 unset($_SESSION['cadastrado']);
@@ -62,21 +62,26 @@ Class Produtos extends Controlador {
     }
 
     public function updateProduto() {
-        $idUp = $_POST['idUp'];
-        $name = $_POST['nome'];
-        $categoria = $_POST['categoria'];
-        $quantidade = $_POST['quantidade'];
+        $id = $_GET['id'];
+        $nome = $_POST['nome'] ?? null;
+        $categoria = $_POST['categoria'] ?? null;
+        $quantidade = $_POST['quantidade'] ?? null;
+        $valor = $_POST['valor'] ?? null;
     
-        Produto::update()->set('nome', $name)
-        ->where('id', $idUp)
+        Produto::update()->set('nome', $nome)
+        ->where('id', $id)
         ->execute();
 
         Produto::update()->set('categoria', $categoria)
-        ->where('id', $idUp)
+        ->where('id', $id)
         ->execute();
 
         Produto::update()->set('quantidade', $quantidade)
-        ->where('id', $idUp)
+        ->where('id', $id)
+        ->execute();
+
+        Produto::update()->set('valor', $valor)
+        ->where('id', $id)
         ->execute();
     
         $this->redirecionar('listar');
