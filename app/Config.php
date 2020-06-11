@@ -11,13 +11,7 @@ class Config {
     const DB_HOST = 'localhost';
     const DB_DATABASE = 'gcommerce';
     const DB_USER = 'postgres';
-    const DB_PASS = 'kaizetta';
-
-    // const DB_DRIVER = 'mysql';
-    // const DB_HOST = 'localhost';
-    // const DB_DATABASE = 'gcommerce';
-    // const DB_USER = 'root';
-    // const DB_PASS = '';
+    const DB_PASS = '00472013';
 
     const ERROR_CONTROLLER = 'ErrorController';
     const DEFAULT_ACTION = 'index';

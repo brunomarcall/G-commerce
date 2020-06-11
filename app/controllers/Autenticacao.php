@@ -82,6 +82,8 @@ class Autenticacao extends Controlador{
         $usuario = $_POST['email'] ?? null;
         $senha = $_POST['senha'] ?? null;
 
+        $senha = md5($senha);
+
         if(!empty($usuario) && !empty($senha)){
             
             $data = Autenticacao::verificarLogin($usuario, $senha);
@@ -132,7 +134,7 @@ class Autenticacao extends Controlador{
 
     public static function adicionarUsuario($nome, $cpfcnpj, $email, $senha){
         $token = md5(time().rand(0, 9999));
-
+        $senha = md5($senha);
         Usuario::insert([
             'email'=>$email,
             'senha'=>$senha,
