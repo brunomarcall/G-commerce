@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Edição-PRODUTO</title>
+  <title>Edição-Produto</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -61,16 +61,28 @@
                 <input type="text" class="form-control" name="nome"  value="<?php echo $dados['nome']?>" required autocomplete="off">
             </div>
             <div class="form-group">
-                <label>Categoria</label>
-                <input type="text" class="form-control" name="categoria" value="<?php echo $dados['categoria']?>" required autocomplete="off">
-            </div>
+                          <label>Categoria:</label><br>
+                          
+                          <select class="form-control" name="categoria">
+                            <option value="0">Categorias</option>
+                            <?php
+                              foreach($dadosView['categorias'] as $itens => $value){
+                                echo "<option value=".$value['id'].">".$value['nome']."</option>";
+                              }  
+                            ?>
+                          </select>
+                      </div>
             <div class="form-group">
                 <label>Quantidade</label>
                 <input type="number" class="form-control" name="quantidade" value="<?php echo $dados['quantidade']?>" required autocomplete="off">
             </div>
+            <div class="form-group">
+                <label>Valor Unitário</label>
+                <input type="money" step="0.01" min="0.00" max="10000.00" class="form-control" name="valor" value="<?php echo $dados['valor'] ?>" required  autocomplete="off">
+            </div>
            
             <div style="text-align: right">
-                <a href="<?=BASE_URL?>/listar" role="button" class="btn btn-sm btn-primary">Voltar</a>
+                <a href="<?=BASE_URL?>listar" role="button" class="btn btn-sm btn-primary">Voltar</a>
                 <button type="submit" class="btn btn-sm btn-primary">Recadastrar</button>
             </div>
         </form>
