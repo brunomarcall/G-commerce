@@ -61,7 +61,7 @@ class Autenticacao extends Controlador{
                 return $token;
             }
         } 
-        $_SESSION['erro'] = 'Usuário ou senha inválido.';
+        $_SESSION['erro'] = 'Senha ou usuário inválido.';
         return false;
     }
 
