@@ -11,7 +11,7 @@ class Config {
     const DB_HOST = 'localhost';
     const DB_DATABASE = 'gcommerce';
     const DB_USER = 'postgres';
-    const DB_PASS = 'cleiton rasta 3';
+    const DB_PASS = 'cleiton rasta 4';
 
     // const DB_DRIVER = 'mysql';
     // const DB_HOST = 'localhost';
