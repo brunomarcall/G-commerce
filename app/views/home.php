@@ -43,10 +43,10 @@
                   <form action="<?=BASE_URL?>login" method="post" class="user">
                     <div class="form-group">
                     <?=$_SESSION["erro"] ?? ""?>
-                      <input name="email" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email ..." required autocomplete="off">
+                      <input name="email" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email ..." required autocomplete="off" maxlength="100">
                     </div>
                     <div class="form-group">
-                      <input name="senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha ..." required autocomplete="off">
+                      <input name="senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha ..." required autocomplete="off" maxlength="16">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
