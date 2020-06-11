@@ -39,21 +39,21 @@
               <form action="<?=BASE_URL?>cadastro/usuario" method="post" class="user">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input name="nome" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nome" equired autocomplete="off" >
+                    <input name="nome" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nome" equired autocomplete="off" maxlength="100">
                   </div>
                   <div class="col-sm-6">
-                    <input name="cpfcnpj" type="text" class="form-control form-control-user" id="exampleLastName" placeholder="CPF/CNPJ"equired autocomplete="off">
+                    <input name="cpfcnpj" type="text" class="form-control form-control-user" id="exampleLastName" placeholder="CPF/CNPJ"equired autocomplete="off" maxlength="14">
                   </div>
                 </div>
                 <div class="form-group">
-                  <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email"equired autocomplete="off">
+                  <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email"equired autocomplete="off" maxlength="100">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input name="senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha"equired autocomplete="off">
+                    <input name="senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha"equired autocomplete="off" maxlength="16">
                   </div>
                   <div class="col-sm-6">
-                    <input name="confirme" type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Confirme sua senha"equired autocomplete="off">
+                    <input name="confirme" type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Confirme sua senha"equired autocomplete="off" maxlength="16">
                   </div>
                 </div>
                
