@@ -70,7 +70,7 @@
                     <td><?php echo date('d/m/Y', strtotime($dado['dt_venda'])) ?></td>
                     <td><?php echo $dado['nmpagamento'] ?></td>
                     <td>
-                      <a class="btn btn-warning btn-sm" href="<?=BASE_URL?>updateVenda?id=<?php echo $dado['id']?>" role="button">Editar</a>
+                      <a class="btn btn-warning btn-sm" href="<?=BASE_URL?>updateVenda?id=<?php echo $dado['id'] ?>" role="button">Editar</a>
                       <a class="btn btn-danger btn-sm" href="<?=BASE_URL?>excluirVenda?id=<?php echo $dado['id']?>"role="button">Excluir</a>
                     </td>
                 </tr>

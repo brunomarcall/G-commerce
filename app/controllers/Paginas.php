@@ -93,6 +93,15 @@ class Paginas extends Controlador {
         }
     }
 
+    public function editarVenda() {
+        if($this->estaLogado()) {
+            $this->addDadosPagina('produtos', Produtos::listarProdutos());
+            $this->addDadosPagina('pagamentos', TiposPagamento::listarTiposPagamentos());
+            $this->views('editarVenda');
+        } else {
+            $this->redirecionar('listaVendas');
+        }
+    }
 
 
 }

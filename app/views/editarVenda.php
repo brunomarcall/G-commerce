@@ -37,45 +37,49 @@
               <div class="col-lg-6">
                 <div class="p-5">
 
-                <?php 
+                  <?php
+
                   use Config\Modelo;
                   use Models\Venda;
 
                   $id = $_GET['id'];
 
-                ?>
-                <h4>Formulário de Edição</h4>
-        <form action="<?=BASE_URL?>updateVenda" method="post" style="margin-top: 20px">
-        <div class="form-group">
-                <label>Código do Venda</label>
-                <input type="text" class="form-control" name="id" value="<?php echo $id?>"  disabled>
-                <input type="text" class="form-control" name="idUp" value="<?php echo $id?>"  style="display: none;">
-            </div>
-            <div class="form-group">
-                <label>Valor</label>
-                <input type="Number" class="form-control" name="nome" placeholder="Insira o nome do Venda" required autocomplete="off">
-            </div>
-            <div class="form-group">
-                <label>Data</label>
-                <input type="date" class="form-control" name="categoria" placeholder="Insira a categoria do Venda" required autocomplete="off">
-            </div>
-            <div class="form-group">
-                <label>Pagamento: </label><br>
-               <select >
-                   <option value="1">
-                       Cartão
-                   </option>
-                   <option value="2">
-                       Dinheiro
-                   </option>
-               </select>
-            </div>
-           
-            <div style="text-align: right">
-                <a href="<?=BASE_URL?>/listar" role="button" class="btn btn-sm btn-primary">Voltar</a>
-                <button type="submit" class="btn btn-sm btn-primary">Recadastrar</button>
-            </div>
-        </form>
+                  $vendas = Venda::select()->where('id', $id)->get();
+
+                  foreach($vendas as $dado){
+
+                  
+
+                  ?>
+                  <h4>Formulário de Edição</h4>
+                  <form action="<?= BASE_URL ?>inserirVenda" method="post" style="margin-top: 20px">
+                    <div class="form-group">
+                      <label>Data</label>
+                      <input type="date" class="form-control" name="dtVenda" value="<?php echo $dado['dt_venda']?>" required autocomplete="off" style="width:50%;border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+                    </div>
+                    <div class="form-group">
+                      <label>Forma de Pagamento:</label><br>
+
+                      <select class="form-control" name="tpPagamento" style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+                        <option value="0">Selecione</option>
+                        <?php
+                        foreach ($dadosView['pagamentos'] as $itens => $value) {
+                          echo "<option value=" . $value['id'] . ">" . $value['nome'] . "</option>";
+                        }
+                        ?>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Valor Total:</label>
+                      <input type="number" step="0.01" class="form-control" id="valorTotal" name="valorTotal" placeholder="valor total" required autocomplete="off" maxlength="15" style="width:50%;border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+                    </div>
+
+                    <div style="text-align: right">
+                      <a href="<?= BASE_URL ?>listaVendas" role="button" class="btn btn-sm btn-primary">Voltar</a>
+                      <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
+                    </div>
+                  </form>
+                      <?php }?>
                 </div>
               </div>
             </div>
