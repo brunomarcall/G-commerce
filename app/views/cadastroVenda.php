@@ -36,31 +36,50 @@
               <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
               <div class="col-lg-6">
                 <div class="p-5">
-                <h4>Formulário de Cadastro</h4>
+                <h4>Formulário de Venda</h4>
         <form action="<?=BASE_URL?>inserirVenda" method="post" style="margin-top: 20px">
         <div class="form-group">
-                <label>Id do Venda</label>
-                <input type="number" class="form-control" name="id" placeholder="Insira o ID do Venda" required required autocomplete="off">
-            </div>
-            <div class="form-group">
-                <label>Valor</label>
-                <input type="number" class="form-control" name="nome" placeholder="Insira o valor do Venda" required autocomplete="off">
-            </div>
-            <div class="form-group">
                 <label>Data</label>
-                <input type="date" class="form-control" name="categoria" placeholder="Insira a data do Venda" required autocomplete="off">
+                <input type="date" class="form-control" name="categoria" placeholder="Insira a data do Venda" required autocomplete="off" style="width:50%;border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+            </div>
+            <div class="form-group row">
+                  <div class="col-sm-7 mb-2 mb-sm-0">
+                  <label>Produto:</label><br>
+                          
+                          <select class="form-control" name="Produto" style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+                            <option value="0">Produto</option>
+                            <?php
+                              foreach($dadosView['produtos'] as $itens => $value){
+                                echo "<option value=".$value['id'].">".$value['nome']."</option>";
+                              }  
+                            ?>
+                          </select>
+                  </div>
+                  <div class="col-sm-5">
+                  <label>Quantidade:</label><br>
+                    <input name="quantidade" type="number" class="form-control form-control-user" id="exampleLastName" placeholder="quantidade"equired autocomplete="off" maxlength="5" style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+                  </div>
+                </div>  
+        <div class="form-group">
+        <label>Forma de Pagamento:</label><br>
+                          
+                          <select class="form-control" name="Produto" style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+                            <option value="0">Selecione</option>
+                            <option value="1">Cartão</option>
+                            <option value="2">Dinheiro</option>
+                            <?php
+                              foreach($dadosView['vendas'] as $itens => $value){
+                                echo "<option value=".$value['id'].">".$value['nome']."</option>";
+                              }  
+                            ?>
+                          </select>
             </div>
             <div class="form-group">
-                <label>Pagamento: </label><br>
-               <select >
-                   <option value="1">
-                       Cartão
-                   </option>
-                   <option value="2">
-                       Dinheiro
-                   </option>
-               </select>
+                <label>Valor Total:</label>
+                <input type="number" class="form-control" name="nome" placeholder="valor total" required autocomplete="off" maxlength="15" style="width:50%;border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
             </div>
+            
+            
           
             <div style="text-align: right">
                 <a href="<?=BASE_URL?>listaVendas" role="button" class="btn btn-sm btn-primary">Voltar</a>
