@@ -33,14 +33,15 @@ Class Vendas extends Controlador {
 
     public static function adicionarVenda($idProduto, $valor, $dtVenda, $tpPagamento, $quantidade) {
         try {
-            Venda::insert([
-                'id_produto'=>$idProduto,
-                'valor'=>str_replace('.', ',', $valor),
-                'dt_venda'=>$dtVenda,
-                'id_tipopagamento'=>$tpPagamento
-            ])->execute();
+            // Venda::insert([
+            //     'id_produto'=>$idProduto,
+            //     'valor'=>str_replace('.', ',', $valor),
+            //     'dt_venda'=>$dtVenda,
+            //     'id_tipopagamento'=>$tpPagamento
+            // ])->execute();
             $qtdBanco = Produto::select(['quantidade'])->where('id', $idProduto)->get();
-            $qtd = intval($qtdBanco) - intval($quantidade);
+            $qtd = intval($qtdBanco[0]["quantidade"]) - intval($quantidade);
+
             Produto::update(['quantidade'=>$qtd])
                 ->where('id', $idProduto)
             ->execute();
