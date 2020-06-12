@@ -140,19 +140,19 @@ $rotas['cadastroVenda'] = array(
 
 $rotas['inserirVenda'] = array(
     'rotas' => 'inserirVenda',
-    'controller' => 'Controller\Vendas',
+    'controller' => 'Controllers\Vendas',
     'metodo' => 'inserirVenda'
 );
 
 $rotas['updateVenda'] = array(
     'rotas' => 'updateVenda',
-    'controller' => 'Controller\Vendas',
+    'controller' => 'Controllers\Vendas',
     'metodo' => 'updateVenda'
 );
 
 $rotas['excluirVenda'] = array(
     'rotas' => 'excluirVenda',
-    'controller' => 'Controller\Vendas',
+    'controller' => 'Controllers\Vendas',
     'metodo' => 'excluirVenda'
 );
 

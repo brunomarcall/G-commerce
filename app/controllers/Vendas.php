@@ -5,6 +5,7 @@ use Config\Modelo;
 use Controllers\Controlador;
 use Exception;
 use Models\Venda;
+use Models\Produto;
 
 Class Vendas extends Controlador {
 
@@ -17,34 +18,32 @@ Class Vendas extends Controlador {
     }
 
     public function inserirVenda() {
-        $id = $_POST['id'] ?? null;
-        $valor = $_POST['valor'] ?? null;
+        $idProduto = $_POST['produto'] ?? null;
+        $valor = $_POST['valorTotal'] ?? null;
         $dtVenda = $_POST['dtVenda'] ?? null;
         $tpPagamento = $_POST['tpPagamento'] ?? null;
+        $quantidade = $_POST['quantidade'] ?? null;
 
-        if($id && $valor&& $dtVenda && $tpPagamento) {
-            $venda =  Venda::verificarVenda($id);
-            
-            if(count($venda) <= 0) {
-                $_SESSION['id_Venda'] = Venda::adicionarVenda($id, $valor, $dtVenda, $tpPagamento);
-                $_SESSION['cadastrado'] = 'Venda Cadastrada com Sucesso';
-            } else {
-                unset($_SESSION['cadastrado']);
-                $_SESSION['erro'] = 'Venda já Cadastrada';
-                $this->redirecionar('listaVendas');
-            }
+        if($idProduto && $valor&& $dtVenda && $tpPagamento && $quantidade) {
+            Vendas::adicionarVenda($idProduto, $valor, $dtVenda, $tpPagamento, $quantidade);
+            $_SESSION['cadastrado'] = 'Venda Cadastrada com Sucesso';
         }
-        $this->redirecionar();
+        $this->redirecionar('listaVendas');
     }
 
-    public function adicionarVenda($id, $valor, $dtVenda, $tpPagamento) {
+    public static function adicionarVenda($idProduto, $valor, $dtVenda, $tpPagamento, $quantidade) {
         try {
             Venda::insert([
-                'id'=>$id,
-                'valor'=>$valor,
+                'id_produto'=>$idProduto,
+                'valor'=>str_replace('.', ',', $valor),
                 'dt_venda'=>$dtVenda,
-                'tp_pagamento'=>$tpPagamento
+                'id_tipopagamento'=>$tpPagamento
             ])->execute();
+            $qtdBanco = Produto::select(['quantidade'])->where('id', $idProduto)->get();
+            $qtd = intval($qtdBanco) - intval($quantidade);
+            Produto::update(['quantidade'=>$qtd])
+                ->where('id', $idProduto)
+            ->execute();
         } catch(Exception $e) {
             echo 'Exceção capturada', $e->getMessage(), "\n";
         }
@@ -52,25 +51,23 @@ Class Vendas extends Controlador {
 
     public function excluirVenda() {
         $id = $_GET['id'];
+        
         Venda::delete()->where('id', $id)->execute();
         $this->redirecionar('listaVendas');
     }
 
     public function updateVenda() {
-        $id = $_POST['id'];
-        $valor = $_POST['valor'];
-        $dtVenda = $_POST['dtVenda'];
-        $tpPagamento = $_POST['tpPagamento'];
+        $id = $_POST['id'] ?? null;
+        $idProduto = $_POST['produto'] ?? null;
+        $valor = $_POST['valorTotal'] ?? null;
+        $dtVenda = $_POST['dtVenda'] ?? null;
+        $tpPagamento = $_POST['tpPagamento'] ?? null;
+        $quantidade = $_POST['quantidade'] ?? null;
 
-        Venda::update()->set('valor', $valor)
-        ->where('id', $id)
-        ->execute();
-        
-        Venda::update()->set('dt_venda', $dtVenda)
-        ->where('id', $id)
-        ->execute();
-
-        Venda::update()->set('tp_pagamento', $tpPagamento)
+        Venda::update()
+            ->set('valor', $valor)
+            ->set('dt_venda', $dtVenda)
+            ->set('id_tipopagamento', $tpPagamento)
         ->where('id', $id)
         ->execute();
 

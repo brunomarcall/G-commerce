@@ -40,7 +40,7 @@
                   <form action="<?=BASE_URL?>inserirVenda" method="post" style="margin-top: 20px">
                   <div class="form-group">
                           <label>Data</label>
-                          <input type="date" class="form-control" name="categoria" placeholder="Insira a data do Venda" required autocomplete="off" style="width:50%;border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+                          <input type="date" class="form-control" name="dtVenda" placeholder="Insira a data do Venda" required autocomplete="off" style="width:50%;border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
                       </div>
                       <div class="form-group row">
                             <div class="col-sm-7 mb-2 mb-sm-0">
@@ -50,20 +50,20 @@
                                 <option value="0">Produto</option>
                                 <?php
                                   foreach($dadosView['produtos'] as $itens => $value){
-                                    echo "<option value=".$value['id']." qtd=".$value['quantidade'].">".$value['nome']."</option>";
+                                    echo "<option value=".$value['id']." qtd=".$value['quantidade']." valor=".str_replace(',','.', str_replace('.', '', str_replace('R$ ', '', $value['valor']))).">".$value['nome']."</option>";
                                   }  
                                 ?>
                               </select>
                             </div>
                             <div class="col-sm-5">
                             <label>Quantidade:</label><br>
-                              <input name="quantidade" type="number" class="form-control form-control-user" id="qtd" placeholder="quantidade"equired autocomplete="off" maxlength="5" style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+                              <input name="quantidade" type="number" min="1" class="form-control form-control-user" id="qtd" placeholder="quantidade"equired autocomplete="off" maxlength="5" style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
                             </div>
                           </div>  
                   <div class="form-group">
                   <label>Forma de Pagamento:</label><br>
                                     
-                      <select class="form-control" name="Produto" style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+                      <select class="form-control" name="tpPagamento" style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
                         <option value="0">Selecione</option>
                         <?php
                           foreach($dadosView['pagamentos'] as $itens => $value){
@@ -74,7 +74,7 @@
                       </div>
                       <div class="form-group">
                           <label>Valor Total:</label>
-                          <input type="number" class="form-control" name="nome" placeholder="valor total" required autocomplete="off" maxlength="15" style="width:50%;border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+                          <input type="number" step="0.01" class="form-control" id="valorTotal" name="valorTotal" placeholder="valor total" required autocomplete="off" maxlength="15" style="width:50%;border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
                       </div>
                       
                       <div style="text-align: right">
@@ -97,8 +97,14 @@
   <script>
     var vProduto = document.getElementById('produto');
     var qtd = document.getElementById('qtd');
+    var valorTotal = document.getElementById('valorTotal');
     vProduto.onchange = ()=>{
       qtd.setAttribute("max", vProduto.options[vProduto.selectedIndex].getAttribute("qtd"));
+      valorTotal.value = '';
+      qtd.value = '';
+    }
+    qtd.onchange = () => {
+      valorTotal.value = qtd.value * vProduto.options[vProduto.selectedIndex].getAttribute("valor");
     }
   </script>
 
