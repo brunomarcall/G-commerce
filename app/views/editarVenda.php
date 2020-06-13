@@ -57,12 +57,6 @@
                                                 style="width:50%;border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
                                         </div>
                                         <div class="form-group">
-                                       
-                                                <label>Quantidade:</label><br>
-                                                <input name="quantidade" type="number" min="1" class="form-control form-control-user" id="qtd" placeholder="quantidade"equired autocomplete="off" maxlength="5" style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
-                                            
-                                            </div>
-                                        <div class="form-group">
                                             <label>Forma de Pagamento:</label><br>
 
                                             <select class="form-control" name="tpPagamento"
