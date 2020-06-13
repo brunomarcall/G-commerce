@@ -36,39 +36,36 @@
                 <img src="app/views/styles/img/img/Logo.png" height="50px" width="140px">
                 <h1 class="h4 text-gray-900 mt-4 mb-4">Crie sua conta!</h1>
               </div>
-              <form action="<?=BASE_URL?>cadastro/usuario" method="post" class="user">
+              <form action="<?= BASE_URL ?>cadastro/usuario" method="post" class="user">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input name="nome" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nome" equired autocomplete="off" maxlength="100">
                   </div>
                   <div class="col-sm-6">
-                    <input name="cpfcnpj" type="text" class="form-control form-control-user" id="exampleLastName" placeholder="CPF/CNPJ"equired autocomplete="off" maxlength="14">
+                    <input name="cpfcnpj" type="text" class="form-control form-control-user" id="exampleLastName" placeholder="CPF/CNPJ" equired autocomplete="off" maxlength="14">
                   </div>
                 </div>
                 <div class="form-group">
-                  <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email"equired autocomplete="off" maxlength="100">
+                  <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email" equired autocomplete="off" maxlength="100">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input name="senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha"equired autocomplete="off" maxlength="16">
+                    <input name="senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha" equired autocomplete="off" maxlength="16">
                   </div>
                   <div class="col-sm-6">
-                    <input name="confirme" type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Confirme sua senha"equired autocomplete="off" maxlength="16">
+                    <input name="confirme" type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Confirme sua senha" equired autocomplete="off" maxlength="16">
                   </div>
                 </div>
-               
+
                 <button type="submit" class="btn btn-primary btn-user btn-block">
-                      Entrar
-                    </button>
+                  Entrar
+                </button>
                 <hr>
-                
               </form>
-              
-              
               <div class="text-center">
-                <a class="small" href="<?=BASE_URL?>/logout">Voltar</a>
+                <a class="small" href="<?= BASE_URL ?>/logout">Voltar</a>
               </div>
-            
+
             </div>
           </div>
         </div>
