@@ -78,7 +78,9 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Valor Total:</label>
-                                            <input type="number" class="form-control" name="valorTotal" id="valorTotal"
+                                            <input 
+                                                readonly="true"
+                                                type="number" class="form-control" name="valorTotal" id="valorTotal"
                                                 placeholder="valor total" step="0.01" required autocomplete="off" maxlength="15"
                                                 style="width:50%;border-radius:10rem;height: calc(2em + 0.75rem + 2px);"
                                                 maxlength="15">

@@ -145,7 +145,7 @@ $rotas['inserirVenda'] = array(
 );
 
 $rotas['editarVenda'] = array(
-    'rotas' => 'updateVenda',
+    'rotas' => 'editarVenda',
     'controller' => 'Controllers\Paginas',
     'metodo' => 'editarVenda'
 );

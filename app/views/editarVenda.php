@@ -41,15 +41,21 @@
 
                                     <?php
                                       use Models\Venda;
+                                      use Models\Produto;
 
                                       $id = $_GET['id'];
 
                                       $vendas = Venda::select()->where('id', $id)->get();
 
                                       foreach ($vendas as $dado) {
+                                          $produto = Produto::select()->where('id', $dado['id_produto'])->get();
                                     ?>
                                     <h4>Formulário de Edição</h4>
-                                    <form action="<?= BASE_URL ?>inserirVenda" method="post" style="margin-top: 20px">
+                                    <form action="<?= BASE_URL ?>updateVenda" method="post" style="margin-top: 20px">
+                                        <div class="form-group">
+                                            <label>Código do Produto</label>
+                                            <input type="hidden" class="form-control form-control-user" name="id" value="<?php echo $id ?>" readonly="true">
+                                        </div>
                                         <div class="form-group">
                                             <label>Data</label>
                                             <input type="date" class="form-control" name="dtVenda"
@@ -74,15 +80,23 @@
                                         <div class="form-group row">
                                             <div class="col-sm-7 mb-3 mb-sm-0">
                                             <label>Quantidade:</label>
-                                            <input type="number" step="0.01" class="form-control" id="valorTotal"
-                                                name="quantidade" placeholder="Quantidade" required autocomplete="off"
+                                            <input type="number" min="1" 
+                                                max="<?=intval($dado['quantidade'])+intval($produto[0]['quantidade']);?>"
+                                                valor="<?=str_replace(',','.', str_replace('.', '', str_replace('R$ ', '', $produto[0]['valor'])));?>" 
+                                                value="<?=$dado['quantidade'];?>" step="1" class="form-control"
+                                                name="qtd" 
+                                                id="qtd" placeholder="Quantidade" required autocomplete="off"
                                                 maxlength="15"
                                                 style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
                                             </div>
                                             <div class="col-sm-5">
                                             <label>Valor Total:</label>
-                                            <input type="number" step="0.01" class="form-control" id="valorTotal"
-                                                name="valorTotal" placeholder="valor total" required autocomplete="off"
+                                            <input type="number" 
+                                                readonly="true"    
+                                                value="<?=str_replace(',','.', str_replace('.', '', str_replace('R$ ', '', $dado['valor'])));?>" 
+                                                step="0.01" class="form-control"
+                                                name="valorTotal" 
+                                                id="valorTotal" placeholder="valor total" required autocomplete="off"
                                                 maxlength="15"
                                                 style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
                                                   
@@ -91,7 +105,7 @@
                                         <div style="text-align: right">
                                             <a href="<?= BASE_URL ?>listaVendas" role="button"
                                                 class="btn btn-sm btn-primary">Voltar</a>
-                                            <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
+                                            <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
                                         </div>
                                     </form>
                                     <?php } ?>
@@ -106,6 +120,15 @@
         </div>
 
     </div>
+
+    <script>
+        var qtd = document.getElementById('qtd');
+        var valorTotal = document.getElementById('valorTotal');
+
+        qtd.onchange = () => {
+            valorTotal.value = qtd.value * qtd.getAttribute("valor");
+        }
+    </script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

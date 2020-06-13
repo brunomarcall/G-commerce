@@ -73,20 +73,33 @@ class Vendas extends Controlador
     }
 
     public function updateVenda()
-    {
+    {  
         $id = $_POST['id'] ?? null;
-        $idProduto = $_POST['produto'] ?? null;
         $valor = $_POST['valorTotal'] ?? null;
         $dtVenda = $_POST['dtVenda'] ?? null;
         $tpPagamento = $_POST['tpPagamento'] ?? null;
-        $quantidade = $_POST['quantidade'] ?? null;
+        $quantidade = $_POST['qtd'] ?? null;
+
+        $venda = Venda::select(['quantidade, id_produto'])
+            ->where('id', $id)
+        ->get();
+
+        $novaQtd = $venda[0]['quantidade'] - $quantidade;
+        $qtdProduto = Produto::select(['quantidade'])->where('id', $venda[0]['id_produto'])->get();
+
+        Produto::update()
+            ->set('quantidade', $qtdProduto[0]['quantidade']+$novaQtd)
+            ->where('id', $venda[0]['id_produto'])
+        ->execute();
 
         Venda::update()
             ->set('valor', $valor)
             ->set('dt_venda', $dtVenda)
             ->set('id_tipopagamento', $tpPagamento)
+            ->set('quantidade', $quantidade)
+            ->set('valor', str_replace('.', ',', $valor))
             ->where('id', $id)
-            ->execute();
+        ->execute();
 
         $this->redirecionar('listaVendas');
     }
