@@ -9,6 +9,12 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
+  <style>
+    #buttonL {
+      background-color: #ffa500;
+    }
+  </style>
+
   <title>Produtos</title>
 
   <!-- Custom fonts for this template-->
@@ -67,7 +73,7 @@
                     <td><?php echo $item['nmcategoria'] ?></td>
                     <td><?php echo $item['quantidade'] ?></td>
                     <td>
-                      <a class="btn btn-warning btn-sm" href="<?=BASE_URL?>editarProduto?id=<?php echo $item['id']?>" role="button">Editar</a>
+                      <a id="buttonL" class="btn btn-warning btn-sm" href="<?=BASE_URL?>editarProduto?id=<?php echo $item['id']?>" role="button">Editar</a>
                       <a class="btn btn-danger btn-sm" href="<?=BASE_URL?>excluirProduto?id=<?php echo $item['id']?>"role="button">Excluir</a>
                     </td>
                 </tr>
@@ -75,8 +81,9 @@
               </tbody>
             </table>
           </div>
-          <a style="float: right; margin-right: 100px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="dashboard" role="button">voltar</a>
-          <a style="float: right; margin-right: 8px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="cadastrarProduto" role="button">Cadastrar</a>
+          <a style="float: right; margin-right: 100px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="cadastrarProduto" role="button">Cadastrar</a>
+          <a style="float: right; margin-right: 8px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="dashboard" role="button">voltar</a>
+          
         </div>
       </div>
     </div>

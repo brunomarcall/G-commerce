@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Relatórios</title>
+  <title>Gráficos</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -38,31 +38,40 @@
       </a>
 
       <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="dashboard">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+        <img src= "app/views/styles/img/svg/dashboard.svg" width="30px" height="30px">
+          <span>Relatórios</span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
       
-      <!-- Nav Item - Charts -->
+      <!-- Gráficos -->
       <li class="nav-item">
         <a class="nav-link" href="graficos">
-          <i class="fas fa-fw fa-chart-area"></i>
+        <img src= "app/views/styles/img/svg/graph.svg" width="20px" height="20px"> 
           <span>Gráficos</span></a>
       </li>
 
-      <!-- Nav Item - Tables -->
+      <!-- Vendas -->
       <li class="nav-item">
+
         <a class="nav-link" href="relatorios">
-          <i class="fas fa-fw fa-table"></i>
+        <img src= "app/views/styles/img/svg/report.svg" width="20px" height="20px">
           <span>Relatório</span></a>
+
+        <a class="nav-link" href="listaVendas">
+        <img src= "app/views/styles/img/svg/wallet.svg" width="20px" height="20px">
+          <span>Vendas</span></a>
+      </li>
+      <!-- Produtos -->
+      <li class="nav-item">
+        <a class="nav-link" href="listar">
+        <img src= "app/views/styles/img/svg/deliveries.svg" width="20px" height="20px">
+          <span>Produtos</span></a>
+
       </li>
 
       <!-- Divider -->

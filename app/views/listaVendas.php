@@ -9,6 +9,12 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
+  <style>
+    #buttonL {
+      background-color: #ffa500;
+    }
+  </style>
+
   <title>Vendas</title>
 
   <!-- Custom fonts for this template-->
@@ -29,7 +35,7 @@
         <div class="card-body p-0">
           <!-- Nested Row within Card Body -->
           <div class="container" style="margin-top: 40px;">
-            <h3>Produtos</h3>
+            <h3>Vendas</h3>
             <br>
 
             <table class="table">
@@ -70,7 +76,7 @@
                     <td><?php echo date('d/m/Y', strtotime($dado['dt_venda'])) ?></td>
                     <td><?php echo $dado['nmpagamento'] ?></td>
                     <td>
-                      <a class="btn btn-warning btn-sm" href="<?=BASE_URL?>updateVenda?id=<?php echo $dado['id'] ?>" role="button">Editar</a>
+                      <a id="buttonL" class="btn btn-warning btn-sm" href="<?=BASE_URL?>updateVenda?id=<?php echo $dado['id'] ?>" role="button">Editar</a>
                       <a class="btn btn-danger btn-sm" href="<?=BASE_URL?>excluirVenda?id=<?php echo $dado['id']?>"role="button">Excluir</a>
                     </td>
                 </tr>
@@ -78,8 +84,9 @@
               </tbody>
             </table>
           </div>
-          <a style="float: right; margin-right: 100px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="dashboard" role="button">voltar</a>
-          <a style="float: right; margin-right: 8px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="cadastroVenda" role="button">Nova Venda</a>
+          <a style="float: right; margin-right: 100px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="cadastroVenda" role="button">Nova Venda</a>
+          <a style="float: right; margin-right: 8px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="dashboard" role="button">voltar</a>
+          
         </div>
       </div>
     </div>
