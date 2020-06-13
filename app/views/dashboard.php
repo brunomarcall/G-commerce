@@ -52,19 +52,12 @@
 
       
       <!-- Gráficos -->
-      <li class="nav-item">
-        <a class="nav-link" href="graficos">
-        <img src= "app/views/styles/img/svg/graph.svg" width="20px" height="20px"> 
-          <span>Gráficos</span></a>
-      </li>
+     
 
       <!-- Vendas -->
       <li class="nav-item">
 
-        <a class="nav-link" href="relatorios">
-        <img src= "app/views/styles/img/svg/report.svg" width="20px" height="20px">
-          <span>Relatório</span></a>
-
+       
         <a class="nav-link" href="listaVendas">
         <img src= "app/views/styles/img/svg/wallet.svg" width="20px" height="20px">
           <span>Vendas</span></a>

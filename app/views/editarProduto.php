@@ -50,20 +50,20 @@
                     
                 ?>
                 <h4>Formulário de Edição</h4>
-                    <form action="<?=BASE_URL?>updateProduto" method="post" style="margin-top: 20px">
+                    <form action="<?=BASE_URL?>updateProduto" method="post" class="user" style="margin-top: 20px">
                     <div class="form-group">
                             <label>Código do Produto</label>
-                            <input type="text" class="form-control" name="id" value="<?php echo $id?>" readonly="true">
+                            <input type="text" class="form-control form-control-user" name="id" value="<?php echo $id?>" readonly="true">
                             <!-- <input type="text" class="form-control" name="idUp" value="<?php echo $id?>"  style="display: none;"> -->
                         </div>
                         <div class="form-group">
                             <label>Nome</label>
-                            <input type="text" class="form-control" name="nome"  value="<?php echo $dados['nome']?>" required autocomplete="off">
+                            <input type="text" class="form-control form-control-user" name="nome"  value="<?php echo $dados['nome']?>" required autocomplete="off" maxlength="100">
                         </div>
                         <div class="form-group">
                           <label>Categoria:</label><br>
                           
-                          <select class="form-control" name="categoria">
+                          <select class="form-control" name="categoria" style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
                             <option value="0">Categorias</option>
                             <?php
                               
@@ -76,11 +76,11 @@
                         </div>
                         <div class="form-group">
                             <label>Quantidade</label>
-                            <input type="number" class="form-control" name="quantidade" value="<?php echo $dados['quantidade']?>" required autocomplete="off">
+                            <input type="text" class="form-control form-control-user" name="quantidade" value="<?php echo $dados['quantidade']?>" required autocomplete="off" maxlength="5">
                         </div>
                         <div class="form-group">
                             <label>Valor Unitário</label>
-                            <input type="money" step="0.01" min="0.00" max="10000.00" class="form-control" name="valor" value="<?php echo $dados['valor'] ?>" required  autocomplete="off">
+                            <input type="text" step="0.01" min="0.00" max="10000.00" class="form-control form-control-user" name="valor" value="<?php echo $dados['valor'] ?>" required  autocomplete="off" maxlength="15">
                         </div>
                       
                         <div style="text-align: right">

@@ -57,7 +57,7 @@
                   </div>
                   <div class="col-sm-5">
                   <label>Quantidade:</label><br>
-                    <input name="quantidade" type="number" class="form-control form-control-user" id="exampleLastName" placeholder="quantidade"equired autocomplete="off" maxlength="5" style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+                    <input name="quantidade" type="text" class="form-control form-control-user" id="exampleLastName" placeholder="quantidade"equired autocomplete="off"  style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);" maxlength="5" >
                   </div>
                 </div>  
         <div class="form-group">
@@ -76,14 +76,15 @@
             </div>
             <div class="form-group">
                 <label>Valor Total:</label>
-                <input type="number" class="form-control" name="nome" placeholder="valor total" required autocomplete="off" maxlength="15" style="width:50%;border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+                <input type="text" class="form-control" name="nome" placeholder="valor total" required autocomplete="off" maxlength="15" style="width:50%;border-radius:10rem;height: calc(2em + 0.75rem + 2px);" maxlength="15">
             </div>
             
             
           
             <div style="text-align: right">
-                <a href="<?=BASE_URL?>listaVendas" role="button" class="btn btn-sm btn-primary">Voltar</a>
+                
                 <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
+                <a href="<?=BASE_URL?>listaVendas" role="button" class="btn btn-sm btn-primary">Voltar</a>
             </div>
         </form>
                 </div>

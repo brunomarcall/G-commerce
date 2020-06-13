@@ -39,7 +39,7 @@
                   <form action="<?=BASE_URL?>inserir" method="post" style="margin-top: 20px" class="user">
                       <div class="form-group ">
                           <label>Nome</label>
-                          <input type="text" class="form-control form-control-user" name="nome" placeholder="Insira o nome do Produto" required autocomplete="off">
+                          <input type="text" class="form-control form-control-user" name="nome" placeholder="Insira o nome do Produto" required autocomplete="off" maxlength="100">
                       </div>
                       <div class="form-group" >
                           <label>Categoria:</label><br>
@@ -55,16 +55,17 @@
                       </div>
                       <div class="form-group">
                           <label>Quantidade</label>
-                          <input type="number" class="form-control form-control-user" name="quantidade" placeholder="Insira a quantiade de Produtos" required autocomplete="off">
+                          <input type="text" class="form-control form-control-user" name="quantidade" placeholder="Insira a quantiade de Produtos" required autocomplete="off" maxlength="5">
                       </div>
                       <div class="form-group">
                           <label>Valor Unitário</label>
-                          <input type="number" step="0.01" min="0.00" max="10000.00" class="form-control form-control-user" name="valor" placeholder="Insira o valor unitário do Produto" required  autocomplete="off">
+                          <input type="text" step="0.01" min="0.00" max="10000.00" class="form-control form-control-user" name="valor" placeholder="Insira o valor unitário do Produto" required  autocomplete="off" maxlength="15">
                       </div>
                     
                       <div style="text-align: right">
-                          <a href="<?=BASE_URL?>listar" role="button" class="btn btn-sm btn-primary">Voltar</a>
+                          
                           <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
+                          <a href="<?=BASE_URL?>listar" role="button" class="btn btn-sm btn-primary">Voltar</a>
                       </div>
                   </form>
                 </div>
