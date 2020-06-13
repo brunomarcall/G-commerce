@@ -82,7 +82,7 @@
             </table>
           </div>
           <a style="float: right; margin-right: 100px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="cadastrarProduto" role="button">Cadastrar</a>
-          <a style="float: right; margin-right: 8px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="dashboard" role="button">voltar</a>
+          <a style="float: right; margin-right: 8px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="dashboard" role="button">Voltar</a>
           
         </div>
       </div>
