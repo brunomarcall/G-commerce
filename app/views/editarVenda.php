@@ -63,20 +63,31 @@
                                                 style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
                                                 <option value="0">Selecione</option>
                                                 <?php
+                                                    
                                                   foreach ($dadosView['pagamentos'] as $itens => $value) {
-                                                    echo "<option value=" . $value['id'] . ">" . $value['nome'] . "</option>";
+                                                    $selected = ($dado['id_tipopagamento'] == $value['id']) ? "selected=\"selected\"" : null;
+                                                    echo "<option value=" . $value['id'] . " $selected>" . $value['nome'] . "</option>";
                                                   }
                                                 ?>
                                             </select>
-                                        </div>
-                                        <div class="form-group">
+                                        </div> 
+                                        <div class="form-group row">
+                                            <div class="col-sm-7 mb-3 mb-sm-0">
+                                            <label>Quantidade:</label>
+                                            <input type="number" step="0.01" class="form-control" id="valorTotal"
+                                                name="quantidade" placeholder="Quantidade" required autocomplete="off"
+                                                maxlength="15"
+                                                style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+                                            </div>
+                                            <div class="col-sm-5">
                                             <label>Valor Total:</label>
                                             <input type="number" step="0.01" class="form-control" id="valorTotal"
                                                 name="valorTotal" placeholder="valor total" required autocomplete="off"
                                                 maxlength="15"
-                                                style="width:50%;border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+                                                style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
+                                                  
+                                            </div>
                                         </div>
-
                                         <div style="text-align: right">
                                             <a href="<?= BASE_URL ?>listaVendas" role="button"
                                                 class="btn btn-sm btn-primary">Voltar</a>
