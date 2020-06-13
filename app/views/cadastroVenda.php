@@ -66,8 +66,7 @@
                           
                           <select class="form-control" name="Produto" style="border-radius:10rem;height: calc(2em + 0.75rem + 2px);">
                             <option value="0">Selecione</option>
-                            <option value="1">Cartão</option>
-                            <option value="2">Dinheiro</option>
+                           
                             <?php
                               foreach($dadosView['vendas'] as $itens => $value){
                                 echo "<option value=".$value['id'].">".$value['nome']."</option>";
