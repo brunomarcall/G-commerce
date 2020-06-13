@@ -154,33 +154,32 @@
           <!-- Content Row -->
 
           <?php
-            use Models\Venda;
             use Config\BancoDados;
 
-            $sql = "SELECT(".
-                      " SELECT SUM(valor)". 
-                      " FROM vendas ".
-                      " WHERE ". 
-                        " date_part('year', dt_venda)|| '-' ||date_part('month', dt_venda) = ".
-                        " date_part('year', current_date)|| '-' ||date_part('month', current_date) ".
-                            
-                    ") quantidademes,".
-                    " SUM(a.valor) ganhostotais, ".
-                    " CAST(".
-                      " SUM(CAST(a.quantidade AS FLOAT))*100/".
-                      " SUM(CAST(b.quantidade AS FLOAT)) AS NUMERIC(5,2)".
-                    " ) estoquevendido, (SELECT COUNT(1) FROM Vendas) totalvendas".
-                  " FROM vendas a".
-                " RIGHT JOIN Produtos b ON (a.id_produto = b.id)".
-                  " INNER JOIN usuarios c ON (b.id_usuario = c.id)".
-                  " WHERE c.id =".$_SESSION['user']['id'];
+            $sql = "SELECT".
+            "( SELECT SUM(a.valor) FROM vendas a ". 
+             " INNER JOIN produtos b ON (a.id_produto=b.id) ".
+             " WHERE (date_part('year', dt_venda)|| '-' ||date_part('month', dt_venda) = ".
+             " date_part('year', current_date)|| '-' ||date_part('month', current_date)) ".
+             " and (b.id_usuario = ".$_SESSION['user']['id'].")".
+             " ) quantidademes, ".
+             " SUM(a.valor) ganhostotais, ".
+             " CAST( ".
+              " SUM(CAST(a.quantidade AS FLOAT))*100/ ".
+              " (select sum(quantidade)+SUM(a.quantidade) from produtos where id_usuario = ".$_SESSION['user']['id'].") AS NUMERIC(5,2) ".
+              " ) estoquevendido, ".
+              " (SELECT COUNT(1) FROM vendas a INNER JOIN produtos b ON (a.id_produto = b.id) ".
+              " where b.id_usuario = ".$_SESSION['user']['id'].") totalvendas ".
+              " FROM vendas a ".
+              " RIGHT JOIN Produtos b ON (a.id_produto = b.id) ".
+              " INNER JOIN usuarios c ON (b.id_usuario = c.id) ".
+              " WHERE c.id = ".$_SESSION['user']['id'];
             // $sql = "SELECT * FROM usuarios";
             $pdo = BancoDados::getInstance();
             $stmt = $pdo->query($sql);
             $result = $stmt->fetch();
             // var_dump($result);
             // exit;
-
           ?>
 
           <div class="row">
@@ -191,7 +190,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> Ganhos p/ Mês</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$result['quantidademes']?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$result['quantidademes'] ?? '0,00'?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -207,7 +206,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Ganhos Totais</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$result['ganhostotais']?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$result['ganhostotais'] ?? '0,00'?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -225,11 +224,11 @@
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Estoque Vendido</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?=$result['estoquevendido']?>%</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?=$result['estoquevendido'] ?? '0'?>%</div>
                         </div>
                         <div class="col">
                           <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: <?=$result['estoquevendido']?>%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-info" role="progressbar" style="width: <?=$result['estoquevendido'] ?? '0'?>%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                         </div>
                       </div>
