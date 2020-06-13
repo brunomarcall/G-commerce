@@ -43,29 +43,29 @@
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="dashboard">
-        <img src= "app/views/styles/img/svg/dashboard.svg" width="30px" height="30px">
+          <img src="app/views/styles/img/svg/dashboard.svg" width="30px" height="30px">
           <span>Dashboard</span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      
+
       <!-- Gráficos -->
-     
+
 
       <!-- Vendas -->
       <li class="nav-item">
 
-       
+
         <a class="nav-link" href="listaVendas">
-        <img src= "app/views/styles/img/svg/wallet.svg" width="20px" height="20px">
+          <img src="app/views/styles/img/svg/wallet.svg" width="20px" height="20px">
           <span>Vendas</span></a>
       </li>
       <!-- Produtos -->
       <li class="nav-item">
         <a class="nav-link" href="listar">
-        <img src= "app/views/styles/img/svg/deliveries.svg" width="20px" height="20px">
+          <img src="app/views/styles/img/svg/deliveries.svg" width="20px" height="20px">
           <span>Produtos</span></a>
 
       </li>
@@ -94,7 +94,7 @@
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-          
+
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
@@ -116,19 +116,12 @@
                 <i class="fas fa-search fa-fw"></i>
               </a>
               <!-- Dropdown - Messages -->
-             
-
-           
-
-            <!-- Nav Item - Messages -->
-           
-
-            <div class="topbar-divider d-none d-sm-block"></div>
-
-            <!-- Nav Item - User Information -->
+              <!-- Nav Item - Messages -->
+              <div class="topbar-divider d-none d-sm-block"></div>
+              <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$_SESSION["usuario"] ?? ""?></span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION["usuario"] ?? "" ?></span>
                 <img class="img-profile rounded-circle" src="app/views/styles/img/img/Logo_circle.png">
               </a>
               <!-- Dropdown - User Information -->
@@ -141,7 +134,6 @@
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Configurações
                 </a>
-               
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -149,24 +141,18 @@
                 </a>
               </div>
             </li>
-
           </ul>
-
         </nav>
         <!-- End of Topbar -->
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
-
           <!-- Content Row -->
           <div class="row">
-
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
@@ -183,7 +169,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
@@ -200,7 +185,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
@@ -356,7 +340,7 @@
               <div class="row">
                 
               </div> -->
-              
+
 
             </div>
             <div class="col-lg-6 mb-4">
@@ -394,7 +378,7 @@
               <div class="row">
                 
               </div> -->
-              
+
 
             </div>
 
@@ -414,7 +398,7 @@
                 </div>
               </div>
 
-             
+
 
             </div>
           </div>
@@ -459,7 +443,7 @@
         <div class="modal-body">Selecione "Sair" para finalizar a sessão atual.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="<?=BASE_URL?>/logout">Sair</a>
+          <a class="btn btn-primary" href="<?= BASE_URL ?>/logout">Sair</a>
         </div>
       </div>
     </div>
