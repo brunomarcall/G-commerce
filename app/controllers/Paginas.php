@@ -5,7 +5,7 @@ namespace Controllers;
 use Controllers\Controlador;
 use Models\Usuario;
 use Models\Categoria;
-
+use Models\TiposPagamento;
 
 class Paginas extends Controlador {
 
@@ -85,12 +85,23 @@ class Paginas extends Controlador {
 
     public function cadastroVenda() {
         if($this->estaLogado()) {
+            $this->addDadosPagina('produtos', Produtos::listarProdutos());
+            $this->addDadosPagina('pagamentos', TiposPagamento::listarTiposPagamentos());
             $this->views('cadastroVenda');
         } else {
             $this->redirecionar();
         }
     }
 
+    public function editarVenda() {
+        if($this->estaLogado()) {
+            $this->addDadosPagina('produtos', Produtos::listarProdutos());
+            $this->addDadosPagina('pagamentos', TiposPagamento::listarTiposPagamentos());
+            $this->views('editarVenda');
+        } else {
+            $this->redirecionar('listaVendas');
+        }
+    }
 
 
 }

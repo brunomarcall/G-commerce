@@ -81,4 +81,11 @@ Class Produtos extends Controlador {
 
     }
 
+    public static function listarProdutos(){
+        $nomeProdutos = Produto::select(['id', 'nome', 'quantidade', 'valor'])
+            ->where('id_usuario', $_SESSION['user']['id'])
+        ->get();
+        return $nomeProdutos ?? [];
+    }
+
 }

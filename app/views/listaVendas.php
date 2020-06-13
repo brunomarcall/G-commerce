@@ -9,6 +9,12 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
+  <style>
+    #buttonL {
+      background-color: #ffa500;
+    }
+  </style>
+
   <title>Vendas</title>
 
   <!-- Custom fonts for this template-->
@@ -29,7 +35,7 @@
         <div class="card-body p-0">
           <!-- Nested Row within Card Body -->
           <div class="container" style="margin-top: 40px;">
-            <h3>Produtos</h3>
+            <h3>Vendas</h3>
             <br>
 
             <table class="table">
@@ -49,27 +55,38 @@
                   use Config\Modelo;
                   use Models\Venda;
 
-                  $vendas = Venda::select()->get();
+                  $vendas = Venda::select(['vendas.id', 'c.nome as nmproduto', 'b.nome nmpagamento', 'vendas.dt_venda'])
+                    ->innerJoin('tipospagamentos as b', function($join) 
+                    {
+                        $join->on('vendas.id_tipopagamento', '=', 'b.id');
+                    })
+                    ->innerJoin('produtos as c', function($join) 
+                    {
+                        $join->on('vendas.id_produto', '=', 'c.id');
+                    })
+                    ->where('id_usuario', $_SESSION['user']['id'])
+                  ->get();
 
                   foreach($vendas as $dado) {
 
                     
                   ?>
                     <td><?php echo $dado['id'] ?></td>
-                    <td><?php echo $dado['venda'] ?></td>
+                    <td><?php echo $dado['nmproduto'] ?></td>
                     <td><?php echo date('d/m/Y', strtotime($dado['dt_venda'])) ?></td>
-                    <td><?php echo $dado['tipo_pagamento'] ?></td>
+                    <td><?php echo $dado['nmpagamento'] ?></td>
                     <td>
-                      <a class="btn btn-warning btn-sm" href="<?=BASE_URL?>editarProduto?id=<?php echo $dado['id']?>" role="button">Editar</a>
-                      <a class="btn btn-danger btn-sm" href="<?=BASE_URL?>excluirProduto?id=<?php echo $dado['id']?>"role="button">Excluir</a>
+                      <a id="buttonL" class="btn btn-warning btn-sm" href="<?=BASE_URL?>updateVenda?id=<?php echo $dado['id'] ?>" role="button">Editar</a>
+                      <a class="btn btn-danger btn-sm" href="<?=BASE_URL?>excluirVenda?id=<?php echo $dado['id']?>"role="button">Excluir</a>
                     </td>
                 </tr>
               <?php } ?>
               </tbody>
             </table>
           </div>
-          <a style="float: right; margin-right: 100px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="dashboard" role="button">voltar</a>
-          <a style="float: right; margin-right: 8px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="cadastroVenda" role="button">Nova Venda</a>
+          <a style="float: right; margin-right: 100px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="cadastroVenda" role="button">Nova Venda</a>
+          <a style="float: right; margin-right: 8px; margin-bottom: 10px" class="btn btn-primary btn-sm" href="dashboard" role="button">voltar</a>
+          
         </div>
       </div>
     </div>
