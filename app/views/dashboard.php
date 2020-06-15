@@ -17,6 +17,7 @@
 
   <!-- Custom styles for this template-->
   <link href="app/views/styles/css/sb-admin-2.css" rel="stylesheet">
+  <link href="app/views/styles/css/mediaq.css" rel="stylesheet">
   <link rel="shortcut icon" href="app/views/styles/img/img/Logo_circle.png">
 
 </head>
@@ -96,16 +97,7 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquise..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form>
+         
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -126,14 +118,7 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Perfil
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Configurações
-                </a>
+                
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -149,37 +134,38 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+         
           </div>
           <!-- Content Row -->
 
           <?php
+            use Models\Venda;
             use Config\BancoDados;
 
-            $sql = "SELECT".
-            "( SELECT SUM(a.valor) FROM vendas a ". 
-             " INNER JOIN produtos b ON (a.id_produto=b.id) ".
-             " WHERE (date_part('year', dt_venda)|| '-' ||date_part('month', dt_venda) = ".
-             " date_part('year', current_date)|| '-' ||date_part('month', current_date)) ".
-             " and (b.id_usuario = ".$_SESSION['user']['id'].")".
-             " ) quantidademes, ".
-             " SUM(a.valor) ganhostotais, ".
-             " CAST( ".
-              " SUM(CAST(a.quantidade AS FLOAT))*100/ ".
-              " (select sum(quantidade)+SUM(a.quantidade) from produtos where id_usuario = ".$_SESSION['user']['id'].") AS NUMERIC(5,2) ".
-              " ) estoquevendido, ".
-              " (SELECT COUNT(1) FROM vendas a INNER JOIN produtos b ON (a.id_produto = b.id) ".
-              " where b.id_usuario = ".$_SESSION['user']['id'].") totalvendas ".
-              " FROM vendas a ".
-              " RIGHT JOIN Produtos b ON (a.id_produto = b.id) ".
-              " INNER JOIN usuarios c ON (b.id_usuario = c.id) ".
-              " WHERE c.id = ".$_SESSION['user']['id'];
+            $sql = "SELECT(".
+                      " SELECT SUM(valor)". 
+                      " FROM vendas ".
+                      " WHERE ". 
+                        " date_part('year', dt_venda)|| '-' ||date_part('month', dt_venda) = ".
+                        " date_part('year', current_date)|| '-' ||date_part('month', current_date) ".
+                            
+                    ") quantidademes,".
+                    " SUM(a.valor) ganhostotais, ".
+                    " CAST(".
+                      " SUM(CAST(a.quantidade AS FLOAT))*100/".
+                      " SUM(CAST(b.quantidade AS FLOAT)) AS NUMERIC(5,2)".
+                    " ) estoquevendido, (SELECT COUNT(1) FROM Vendas) totalvendas".
+                  " FROM vendas a".
+                " RIGHT JOIN Produtos b ON (a.id_produto = b.id)".
+                  " INNER JOIN usuarios c ON (b.id_usuario = c.id)".
+                  " WHERE c.id =".$_SESSION['user']['id'];
             // $sql = "SELECT * FROM usuarios";
             $pdo = BancoDados::getInstance();
             $stmt = $pdo->query($sql);
             $result = $stmt->fetch();
             // var_dump($result);
             // exit;
+
           ?>
 
           <div class="row">
@@ -190,10 +176,10 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> Ganhos p/ Mês</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$result['quantidademes'] ?? '0,00'?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$result['quantidademes']?></div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    <img src="app/views/styles/img/svg/calendar.svg" width="40px" height="40px">
                     </div>
                   </div>
                 </div>
@@ -206,10 +192,10 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Ganhos Totais</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$result['ganhostotais'] ?? '0,00'?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$result['ganhostotais']?></div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    <img src="app/views/styles/img/svg/vault.svg" width="40px" height="40px">
                     </div>
                   </div>
                 </div>
@@ -224,17 +210,17 @@
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Estoque Vendido</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?=$result['estoquevendido'] ?? '0'?>%</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?=$result['estoquevendido']?>%</div>
                         </div>
                         <div class="col">
                           <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: <?=$result['estoquevendido'] ?? '0'?>%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-info" role="progressbar" style="width: <?=$result['estoquevendido']?>%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    <img src="app/views/styles/img/svg/box.svg" width="40px" height="40px">
                     </div>
                   </div>
                 </div>
@@ -251,7 +237,7 @@
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$result['totalvendas']?></div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
+                    <img src="app/views/styles/img/svg/confirmation.svg" width="40px" height="40px">
                     </div>
                   </div>
                 </div>
@@ -268,166 +254,135 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Vendas</h6>
                   <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                   
                   </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  <head>
+                  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                  <script type="text/javascript">
+                    google.charts.load('current', {'packages':['corechart']});
+                    google.charts.setOnLoadCallback(drawChart);
+
+                            function drawChart() {
+                              var data = google.visualization.arrayToDataTable([
+                                ['Ano', 'Vendas'],
+                                
+                                      <?php
+                                      use Config\Modelo;
+                                      use Controllers\Produtos;
+                                      use Models\Produto;
+
+                                      $teste = Venda::select()->get();
+                                      $grafico = Produto::select()->get();
+
+                                      
+                                    foreach ($teste as $data) {
+                                      $year = $data['dt_venda'];
+                                      $sale = $data['quantidade'];
+                                ?>  
+                                  ['<?php echo $year;?>',<?php echo $sale;?>], 
+                                <?php      
+                                    }
+
+                                ?> 
+                      
+                              ]);
+
+                              var options = {
+                              //curveType: 'Vendas',
+                                //legend: { position: 'Data'}
+                              };
+
+
+                              var chart = new google.visualization.LineChart 
+                      (document.getElementById('curve_chart'));
+
+                              chart.draw(data, options);
+                            }
+                          </script>
+                        </head>
+                        <body>
+                        <div class="col-xl-8 col-lg-7">
+                        <div class="card-body">
+                        <div class="chart-area">
+                          <div id="curve_chart" class=" " style="width: 660px; height: 300px;"></div>
+                          </div>
+                          </div>
+                          </div>
+                        </body>
+                      </html>                  </div>
+                                      </div>
+                                    </div>
+                                  </div>
 
             <!-- Pie Chart -->
             <div class="col-xl-4 col-lg-5">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
+                  <h6 class="m-0 font-weight-bold text-primary">Quantidade de Produtos no Estoque</h6>
+ 
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                  </div>
-                  <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                  </div>
+                  <html>
+              <head>
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                <script type="text/javascript">
+                  google.charts.load("current", {packages:["corechart"]});
+                  google.charts.setOnLoadCallback(drawChart);
+                  function drawChart() {
+                    var data = google.visualization.arrayToDataTable([
+                      ['Task', 'Hours per Day'],
+                    
+                              
+                      <?php
+                          
+                          
+
+                            $teste = Venda::select()->get();
+                            $grafico = Produto::select()->get();
+
+                            
+                          foreach ($grafico as $data) {
+                            $year = $data['nome'];
+                            $sale = $data['quantidade'];
+                      ?>  
+                        ['<?php echo $year;?>',<?php echo $sale;?>], 
+                      <?php      
+                          }
+
+                      ?> 
+            
+                    ]);
+                    
+
+                    var options = {
+                      pieHole: 0.4,
+                    };
+
+                    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                    chart.draw(data, options);
+                  }
+                </script>
+              </head>
+              <body>
+                <div id="donutchart" style="width: 320px; height: 0px;"></div>
+              </body>
+            </html>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Content Row -->
-          <div class="row">
-
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
-
-              <!-- Project Card Example -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                </div>
-                <div class="card-body">
-                  <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Color System
-              <div class="row">
-                
-              </div> -->
-
-
-            </div>
-            <div class="col-lg-6 mb-4">
-
-              <!-- Project Card Example -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                </div>
-                <div class="card-body">
-                  <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Color System
-              <div class="row">
-                
-              </div> -->
-
-
-            </div>
-
-            <div class="col-lg-6 mb-4">
-
-              <!-- Illustrations -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-                </div>
-                <div class="card-body">
-                  <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="app/views/styles/img/undraw_posting_photo.svg" alt="">
-                  </div>
-                  <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
-                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
-                </div>
-              </div>
-
+         
 
 
             </div>
@@ -440,13 +395,7 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
-          </div>
-        </div>
-      </footer>
+      
       <!-- End of Footer -->
 
     </div>

@@ -1,0 +1,20 @@
+@media screen and (max-width: 992px) {
+  #curve_chat {
+    width: 160px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #curve_chat {
+    width: 160px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  #curve_chat {
+    width: 160px;
+    height: 200px;
+  }
+}
